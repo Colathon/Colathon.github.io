@@ -32,7 +32,7 @@ export default function Navbar() {
                </div>
             </div>
             <span className="hidden text-sm font-semibold text-zinc-200 sm:block group-hover:text-white transition-colors">
-              Colath
+              Colathon
             </span>
           </Link>
         </div>

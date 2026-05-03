@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Colath | Personal Homepage",
+  title: "Colathon | Personal Homepage",
   description: "A research-focused personal homepage built with Next.js and AI Agents.",
 };
 

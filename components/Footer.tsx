@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div className="text-center md:text-left">
             <p className="text-sm text-zinc-400">
-              &copy; {new Date().getFullYear()} Colath. All rights reserved.
+              &copy; {new Date().getFullYear()} Colathon. All rights reserved.
             </p>
             <p className="mt-1 text-xs text-zinc-500">
               Built with Next.js, Tailwind CSS & AI Agents.
@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
           
           <div className="flex items-center gap-6">
-            <a href="https://github.com/Colath" className="text-zinc-500 hover:text-white transition-colors" title="GitHub">
+            <a href="https://github.com/Colathon" className="text-zinc-500 hover:text-white transition-colors" title="GitHub">
               <Link2 className="h-5 w-5" />
             </a>
             <a href="mailto:your-email@example.com" className="text-zinc-500 hover:text-white transition-colors" title="Email">

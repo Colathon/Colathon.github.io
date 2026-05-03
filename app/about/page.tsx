@@ -17,7 +17,7 @@ export default function AboutPage() {
             </div>
             <div className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
               <Link2 className="h-5 w-5" />
-              <a href="https://github.com/Colath" className="text-sm">github.com/Colath</a>
+              <a href="https://github.com/Colathon" className="text-sm">github.com/Colathon</a>
             </div>
             <div className="flex items-center gap-3 text-zinc-400">
               <MapPin className="h-5 w-5" />
@@ -34,7 +34,7 @@ export default function AboutPage() {
           <h1 className="text-4xl font-bold tracking-tight text-white mb-6">About Me</h1>
           <div className="prose prose-invert prose-zinc max-w-none">
             <p className="text-lg text-zinc-400 leading-relaxed mb-6">
-              Hi, I&apos;m <strong>Colath</strong>. I&apos;m a student and developer passionate about Artificial Intelligence, Software Engineering, and building tools that matter. 
+              Hi, I&apos;m <strong>Colathon</strong>. I&apos;m a student and developer passionate about Artificial Intelligence, Software Engineering, and building tools that matter. 
             </p>
             <p className="text-zinc-400 leading-relaxed mb-6">
               Currently, my research focus is on <strong>AI Agents</strong> and their applications in software development lifecycles. I enjoy exploring how large language models can be transformed into autonomous agents capable of complex reasoning and tool usage.
