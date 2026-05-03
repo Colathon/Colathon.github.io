@@ -11,7 +11,7 @@ export default function AboutPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
               <Mail className="h-5 w-5" />
-              <a href="mailto:your-email@example.com" className="text-sm">your-email@example.com</a>
+              <a href="mailto:your-email@example.com" className="text-sm">lhz7269874@gmail.com</a>
             </div>
             <div className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
               <Link2 className="h-5 w-5" />
@@ -19,11 +19,11 @@ export default function AboutPage() {
             </div>
             <div className="flex items-center gap-3 text-zinc-400">
               <MapPin className="h-5 w-5" />
-              <span className="text-sm">Beijing, China</span>
+              <span className="text-sm">Hefei, China</span>
             </div>
             <div className="flex items-center gap-3 text-zinc-400">
               <GraduationCap className="h-5 w-5" />
-              <span className="text-sm">Tsinghua University (Example)</span>
+              <span className="text-sm">University of Science and Technology of China</span>
             </div>
           </div>
         </div>
@@ -32,31 +32,31 @@ export default function AboutPage() {
           <h1 className="text-4xl font-bold tracking-tight text-white mb-6">About Me</h1>
           <div className="prose prose-invert prose-zinc max-w-none">
             <p className="text-lg text-zinc-400 leading-relaxed mb-6">
-              Hi, I&apos;m <strong>Colathon</strong>. I&apos;m a student and developer passionate about Artificial Intelligence, Software Engineering, and building tools that matter. 
+              Hi, I&apos;m <strong>Colathon</strong>. I&apos;m a student in USTC and major in CG, specifically Mesh-Simplification for now.
             </p>
             <p className="text-zinc-400 leading-relaxed mb-6">
-              Currently, my research focus is on <strong>AI Agents</strong> and their applications in software development lifecycles. I enjoy exploring how large language models can be transformed into autonomous agents capable of complex reasoning and tool usage.
+              Currently, I also have an interest in three-dimensional generation and reconstruction, besides doing some improvements for the experience and efficiency while utilizing AI Agents.  
             </p>
             
             <h3 className="text-white mt-8 mb-4">Research Interests</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0">
               <li className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-sm text-zinc-300">
-                Large Language Models (LLMs)
+                Three-dimensional Generation and Construction
+              </li>
+              <li className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-sm text-zinc-300">
+                Computer Graphics
+              </li>
+              <li className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-sm text-zinc-300">
+                Mesh Simplification
               </li>
               <li className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-sm text-zinc-300">
                 Autonomous AI Agents
-              </li>
-              <li className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-sm text-zinc-300">
-                Software Engineering Automation
-              </li>
-              <li className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-sm text-zinc-300">
-                Human-AI Collaboration
               </li>
             </ul>
 
             <h3 className="text-white mt-12 mb-4">Background</h3>
             <p className="text-zinc-400 leading-relaxed">
-              I spend most of my time reading research papers, experimenting with new frameworks, and thinking about the future of computing. Outside of tech, I enjoy gaming and digital arts.
+              I spend most of my time reading research papers, experimenting with new frameworks, and thinking about the future of computing. Outside of tech, I enjoy watching movies.
             </p>
           </div>
         </div>

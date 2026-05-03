@@ -27,9 +27,9 @@ export default function Home() {
 
               {/* Contact Info Chips */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
-                <a href="mailto:your-email@example.com" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-300 hover:border-zinc-600 transition-all">
+                <a href="lhz7269874@gmail.com" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-300 hover:border-zinc-600 transition-all">
                   <Mail className="h-4 w-4" />
-                  your-email@example.com
+                  lhz7269874@gmail.com
                 </a>
                 <a href="https://github.com/Colathon" target="_blank" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-300 hover:border-zinc-600 transition-all">
                   <Link2 className="h-4 w-4" />
@@ -80,7 +80,7 @@ export default function Home() {
             { 
               icon: Code2, 
               title: "Open Source", 
-              desc: "Experimental projects and contributions to the developer community.", 
+              desc: "Experimental projects and some of my homeworks.", 
               link: "/projects",
               label: "Explore"
             },
