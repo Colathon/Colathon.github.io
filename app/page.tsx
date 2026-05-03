@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookText, Code2, BookOpen, Mail, Github, ExternalLink } from "lucide-react";
+import { ArrowRight, BookText, Code2, BookOpen, Mail, Link2, ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
@@ -32,7 +32,7 @@ export default function Home() {
                   your-email@example.com
                 </a>
                 <a href="https://github.com/Colathon" target="_blank" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-300 hover:border-zinc-600 transition-all">
-                  <Github className="h-4 w-4" />
+                  <Link2 className="h-4 w-4" />
                   @Colathon
                 </a>
               </div>
