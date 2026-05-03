@@ -34,7 +34,7 @@ export default function AboutPage() {
           <h1 className="text-4xl font-bold tracking-tight text-white mb-6">About Me</h1>
           <div className="prose prose-invert prose-zinc max-w-none">
             <p className="text-lg text-zinc-400 leading-relaxed mb-6">
-              Hi, I'm <strong>Colath</strong>. I'm a student and developer passionate about Artificial Intelligence, Software Engineering, and building tools that matter. 
+              Hi, I&apos;m <strong>Colath</strong>. I&apos;m a student and developer passionate about Artificial Intelligence, Software Engineering, and building tools that matter. 
             </p>
             <p className="text-zinc-400 leading-relaxed mb-6">
               Currently, my research focus is on <strong>AI Agents</strong> and their applications in software development lifecycles. I enjoy exploring how large language models can be transformed into autonomous agents capable of complex reasoning and tool usage.

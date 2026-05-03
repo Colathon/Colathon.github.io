@@ -1,4 +1,4 @@
-import { FileText, ExternalLink, Bookmark } from "lucide-react";
+import { ExternalLink, Bookmark } from "lucide-react";
 
 const papers = [
   {
