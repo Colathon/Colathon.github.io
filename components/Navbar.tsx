@@ -26,10 +26,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link href="/about" className="group flex items-center gap-3">
             <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-zinc-700 bg-zinc-800 transition-all group-hover:border-zinc-500">
-               {/* Replace with <img src="/avatar.jpg" /> later */}
-               <div className="flex h-full w-full items-center justify-center text-xs font-bold text-zinc-400">
-                 C
-               </div>
+               <img src="/avatar.jpg" alt="C" className="h-full w-full object-cover" />
             </div>
             <span className="hidden text-sm font-semibold text-zinc-200 sm:block group-hover:text-white transition-colors">
               Colathon

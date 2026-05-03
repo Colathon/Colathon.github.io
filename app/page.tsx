@@ -56,10 +56,7 @@ export default function Home() {
             <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 relative shrink-0">
               <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-2xl animate-pulse"></div>
               <div className="relative w-full h-full rounded-full border-[6px] border-zinc-900 overflow-hidden shadow-2xl group transition-all duration-700 hover:rotate-3">
-                 <div className="flex h-full w-full items-center justify-center bg-zinc-900 text-6xl font-black text-zinc-800 group-hover:text-zinc-700 transition-colors">
-                   {/* Replace with <img src="/avatar.jpg" className="w-full h-full object-cover" /> */}
-                   CN
-                 </div>
+                 <img src="/avatar.jpg" alt="Colathon" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               </div>
             </div>
           </div>

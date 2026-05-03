@@ -6,9 +6,7 @@ export default function AboutPage() {
       <div className="flex flex-col md:flex-row gap-12 items-start">
         <div className="w-full md:w-1/3">
           <div className="aspect-square rounded-3xl overflow-hidden border-2 border-zinc-800 bg-zinc-900 mb-6 shadow-2xl">
-            <div className="flex h-full w-full items-center justify-center text-4xl font-bold text-zinc-700">
-              Avatar
-            </div>
+            <img src="/avatar.jpg" alt="Colathon" className="w-full h-full object-cover" />
           </div>
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
