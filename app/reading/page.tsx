@@ -1,0 +1,72 @@
+import { FileText, ExternalLink, Bookmark } from "lucide-react";
+
+const papers = [
+  {
+    title: "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+    authors: "Guanzhi Wang, et al.",
+    source: "arXiv 2023",
+    link: "https://arxiv.org/abs/2305.16291",
+    tags: ["AI Agents", "Reinforcement Learning"],
+    note: "A seminal paper on how LLMs can explore open-ended worlds (Minecraft) using code as actions."
+  },
+  {
+    title: "Generative Agents: Interactive Simulacra of Human Behavior",
+    authors: "Joon Sung Park, et al.",
+    source: "arXiv 2023 / CHI 2023",
+    link: "https://arxiv.org/abs/2304.03442",
+    tags: ["Social Simulation", "Generative Agents"],
+    note: "Explores long-term memory and social dynamics in autonomous agents."
+  },
+  {
+    title: "A Survey on Large Language Model based Autonomous Agents",
+    authors: "Lei Wang, et al.",
+    source: "arXiv 2023",
+    link: "https://arxiv.org/abs/2308.11432",
+    tags: ["Survey", "LLM Agents"],
+    note: "A comprehensive overview of the current state of AI agents."
+  }
+];
+
+export default function ReadingPage() {
+  return (
+    <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
+      <div className="mb-16">
+        <h1 className="text-4xl font-bold tracking-tight text-white mb-4">Reading List</h1>
+        <p className="text-lg text-zinc-500">
+          A curated collection of research papers and technical articles I find influential.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-8">
+        {papers.map((paper) => (
+          <div key={paper.title} className="group relative bg-zinc-900/50 border border-zinc-800 p-8 rounded-3xl hover:bg-zinc-900 transition-all shadow-sm">
+            <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-3">
+                  <Bookmark className="h-4 w-4 text-blue-500" />
+                  <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">{paper.source}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  <a href={paper.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    {paper.title} <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </h3>
+                <p className="text-zinc-400 text-sm mb-4 italic">{paper.authors}</p>
+                <p className="text-zinc-500 text-sm leading-relaxed mb-6">
+                  {paper.note}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {paper.tags.map((tag) => (
+                    <span key={tag} className="px-2 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

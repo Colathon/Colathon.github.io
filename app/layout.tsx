@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "我的个人主页",
-  description: "使用 Next.js 和 AI Agent 搭建的个人主页",
+  title: "Colath | Personal Homepage",
+  description: "A research-focused personal homepage built with Next.js and AI Agents.",
 };
 
 export default function RootLayout({
@@ -26,10 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="zh-CN"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-screen flex flex-col bg-white text-zinc-900">
+      <body className="min-h-screen flex flex-col bg-zinc-950 text-zinc-100">
         <Navbar />
         <main className="flex-grow">
           {children}

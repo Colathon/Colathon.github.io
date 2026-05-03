@@ -1,81 +1,81 @@
 import Link from "next/link";
-import { ArrowRight, BookText, Code2, Cpu } from "lucide-react";
+import { ArrowRight, BookText, Code2, BookOpen } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20 pb-20">
+    <div className="flex flex-col gap-24 pb-24">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24">
+      <section className="relative overflow-hidden pt-24 pb-20 md:pt-36 md:pb-32 bg-zinc-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 mb-6">
-              你好，我是你的 <span className="text-zinc-500">AI 助手</span>。
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-8">
+              Researcher, Developer, <span className="text-zinc-600 italic">Explorer.</span>
             </h1>
-            <p className="text-xl text-zinc-600 mb-10 leading-relaxed">
-              欢迎来到我的个人主页。这是一个展示我的项目、分享我的思考，以及探索 AI 未来无限可能的地方。
+            <p className="text-xl md:text-2xl text-zinc-400 mb-12 leading-relaxed max-w-2xl">
+              I build autonomous systems and explore the frontier of human-AI collaboration. Currently focused on the next generation of AI Agents.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900 text-white font-medium hover:bg-zinc-800 transition-colors"
-              >
-                阅读博客 <ArrowRight className="h-4 w-4" />
-              </Link>
+            <div className="flex flex-wrap gap-6">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-200 bg-white text-zinc-900 font-medium hover:bg-zinc-50 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-zinc-950 font-semibold hover:bg-zinc-200 transition-all shadow-lg"
               >
-                查看项目
+                View Projects <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-zinc-800 bg-zinc-900 text-white font-semibold hover:bg-zinc-800 transition-all"
+              >
+                More About Me
               </Link>
             </div>
           </div>
         </div>
         {/* Background Decorative Element */}
-        <div className="absolute top-0 right-0 -z-10 w-1/2 h-full opacity-10">
-           <div className="w-full h-full bg-gradient-to-bl from-zinc-500 to-transparent rounded-bl-full" />
+        <div className="absolute top-0 right-0 -z-10 w-2/3 h-full opacity-20 pointer-events-none">
+           <div className="w-full h-full bg-gradient-to-bl from-blue-500/20 via-transparent to-transparent blur-3xl" />
         </div>
       </section>
 
       {/* Featured Sections Grid */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="group p-8 rounded-3xl border border-zinc-100 bg-zinc-50/50 hover:bg-zinc-50 transition-colors">
-            <div className="h-12 w-12 rounded-2xl bg-white border border-zinc-100 flex items-center justify-center mb-6">
-              <BookText className="h-6 w-6 text-zinc-900" />
+          <div className="group p-10 rounded-3xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-zinc-700 transition-all shadow-sm">
+            <div className="h-14 w-14 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              <BookText className="h-7 w-7 text-white" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">技术博客</h3>
-            <p className="text-zinc-500 mb-6">
-              记录我在算法、AI 和软件开发过程中的所思所悟。
+            <h3 className="text-2xl font-bold text-white mb-4">Technical Blog</h3>
+            <p className="text-zinc-400 mb-8 leading-relaxed">
+              Deep dives into algorithms, AI research, and software architecture.
             </p>
-            <Link href="/blog" className="text-sm font-medium inline-flex items-center gap-1 group-hover:underline">
-              前往阅读 <ArrowRight className="h-3 w-3" />
+            <Link href="/blog" className="text-sm font-semibold inline-flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
+              Read Articles <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="group p-8 rounded-3xl border border-zinc-100 bg-zinc-50/50 hover:bg-zinc-50 transition-colors">
-            <div className="h-12 w-12 rounded-2xl bg-white border border-zinc-100 flex items-center justify-center mb-6">
-              <Code2 className="h-6 w-6 text-zinc-900" />
+          <div className="group p-10 rounded-3xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-zinc-700 transition-all shadow-sm">
+            <div className="h-14 w-14 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              <Code2 className="h-7 w-7 text-white" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">开源项目</h3>
-            <p className="text-zinc-500 mb-6">
-              展示我正在进行或已完成的有趣项目和实验。
+            <h3 className="text-2xl font-bold text-white mb-4">Open Source</h3>
+            <p className="text-zinc-400 mb-8 leading-relaxed">
+              Experimental projects and contributions to the developer community.
             </p>
-            <Link href="/projects" className="text-sm font-medium inline-flex items-center gap-1 group-hover:underline">
-              了解更多 <ArrowRight className="h-3 w-3" />
+            <Link href="/projects" className="text-sm font-semibold inline-flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
+              Explore Code <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="group p-8 rounded-3xl border border-zinc-100 bg-zinc-50/50 hover:bg-zinc-50 transition-colors">
-            <div className="h-12 w-12 rounded-2xl bg-white border border-zinc-100 flex items-center justify-center mb-6">
-              <Cpu className="h-6 w-6 text-zinc-900" />
+          <div className="group p-10 rounded-3xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-zinc-700 transition-all shadow-sm">
+            <div className="h-14 w-14 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              <BookOpen className="h-7 w-7 text-white" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">AI 托管服务</h3>
-            <p className="text-zinc-500 mb-6">
-              (即将到来) 一个全流程的 AI 托管与集成平台。
+            <h3 className="text-2xl font-bold text-white mb-4">Reading List</h3>
+            <p className="text-zinc-400 mb-8 leading-relaxed">
+              Curated research papers and articles that shape my thinking.
             </p>
-            <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-              Coming Soon
-            </span>
+            <Link href="/reading" className="text-sm font-semibold inline-flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
+              Browse Library <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
