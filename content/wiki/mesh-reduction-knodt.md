@@ -1,42 +1,67 @@
 ---
 title: "Single Edge Collapse Quad-Dominant Mesh Reduction"
 date: "2026-05-04"
-excerpt: "Notes on Julian Knodt's 2024 paper on preserving quad topology during mesh decimation using modified edge collapse."
-tags: ["Computer Graphics", "Geometry Processing", "Research"]
+excerpt: "Deep dive into Julian Knodt's 2024 method for preserving quad topology via per-edge weighted quadrics and recency-based partial ordering."
+tags: ["Computer Graphics", "Geometry Processing", "Mesh Decimation", "Research"]
 ---
 
 # Single Edge Collapse Quad-Dominant Mesh Reduction
 
-This note summarizes the 2024 paper by **Julian Knodt** (ACM Transactions on Graphics), which addresses the challenge of simplifying quad-dominant meshes while preserving their quadrilateral structure.
+This note provides a technical deep dive into the method proposed by **Julian Knodt (2024)** for simplifying quad-dominant meshes while preserving clean topology and edge loops.
 
-## The Core Problem
+## 1. Per-Edge Weighted Quadric
 
-Standard mesh reduction algorithms (like QEM - Quadric Error Metrics) are optimized for triangles. When applied to quad meshes, they often "shatter" quads into triangles because they lack a mechanism to maintain quad topology during individual edge collapses.
+The traditional QEM (Garland & Heckbert) lacks constraints in the tangent plane of faces, leading to ambiguous vertex placement in coplanar regions. Knodt resolves this by introducing quadrics in the tangent space of each face.
 
-## Key Innovations
+### Dihedral-Angle Weighting
+For each edge $e$ with vertices $v_0, v_1$, an additional quadric $Q_{edge}$ is introduced, orthogonal to the face normal:
+$$Q_{edge} = \text{Quadric}\left(v_0, \frac{v_0 - v_1}{\|v_0 - v_1\|_2} \times \text{normal}(f)\right)$$
 
-### 1. Dihedral-Angle Weighted Quadrics
-Traditional QEM uses plane distances. This paper introduces edge-specific quadrics weighted by the **dihedral angle** between adjacent faces. 
-- **Benefit:** Better respects geometric features (like sharp edges) and prevents the "clustering" of vertices that often happens in quad decimation.
+The weight $w$ is determined by the dihedral angle:
+- **Manifold edge:** $w = \frac{1}{\pi} \arccos(n(f_0)^\top n(f_1))$
+- **Non-manifold edge:** $w = 1$
 
-### 2. Stateful Edge Collapse (Recency Bias)
-The algorithm introduces a "greedy" local consistency check.
-- **Heuristic:** When multiple edges have similar collapse costs, it prioritizes edges that are "near" recently collapsed ones.
-- **Why?** This preserves the "flow" or alignment of quads, preventing the checkerboard-like patterns from breaking into triangles prematurely.
+The final edge quadric is scaled by the edge length to ensure consistent distance metrics:
+$$Q'_{edge} = w \|v_0 - v_1\|_2 Q_{edge}$$
 
-### 3. Attribute Preservation
-- Supports **skinning weights** and other vertex attributes.
-- Demonstrates superior performance in preserving joint influences compared to industry standards like Maya or Houdini's built-in decimators.
+## 2. Partial Ordering & Recency Bias
 
-## Performance Metrics
-- **Quad Retention:** Maintains a median of ~95% quads at 50% reduction.
-- **Fidelity:** Lower Chamfer and Hausdorff distances than previous state-of-the-art methods.
+A key insight of the paper is that a **total ordering** (strict cost-based) causes "deterministically random" collapses due to floating-point errors, which shatters quad topology.
 
-## Personal Thoughts / Implementation Notes
-*This is the primary paper I am currently reproducing and improving upon.*
-- The recency bias seems key to maintaining the quad layout.
-- Need to look into how the dihedral weighting affects the performance on high-curvature regions.
+### The $\epsilon$-band Heuristic
+Edges are grouped into **equivalence classes** if their quadric errors are nearly equal:
+$$a \approx b := |a - b| < \epsilon_{abs}$$
 
+### Recency Metric
+Within an equivalence class, the algorithm prioritizes edges based on **Recency**:
+- When an edge is collapsed, the **recency** of the edges on the opposite side of the quads (opposing quad edges) is increased.
+- High recency edges are collapsed first, which implicitly forces the decimation of **quad chords**.
+
+## 3. Implementation: Dual Priority Queues
+
+The system uses two priority queues to manage the collapse order:
+1. **$pq_{qem}$**: Ordered strictly by quadric error.
+2. **$pq_{\approx}$**: Ordered by **Recency**, and then by quadric error as a tie-breaker.
+
+**Algorithm Flow:**
+- Pop the best edge from $pq_{qem}$.
+- Move all "approximately equal" edges (within $\epsilon_{abs}$) from $pq_{qem}$ to $pq_{\approx}$.
+- Collapse edges from $pq_{\approx}$ based on high recency.
+- This ensures that once a quad chord starts being collapsed, the algorithm "follows through" until the chord is decimated.
+
+## 4. Minimizing Introduced Error
+
+Unlike "memoryless" simplification which measures error from the current state, Knodt redefines the error to measure the **incremental error** introduced relative to the *decimated* mesh, while still grounding it in the original quadrics:
+$$\text{QEM}(e=(v_0, v_1), v_{new}) = (Q_{v_0} + Q_{v_1})(v_{new}) - (Q_{v_0}(v_0) + Q_{v_1}(v_1))$$
+This modification prevents penalizing future collapses for errors introduced by past ones, closely resembling the benefits of memoryless simplification without its implementation complexity.
+
+## 5. Attribute & Skinning Preservation
+The method treats **joint influences** (skinning weights) as vertex attributes.
+- Uses a linear functional $j_{ib}(p) = g_{ji}^\top p + d_{ji}$ for each influence.
+- Maintains a maximum of 16 influences per vertex during decimation, selecting the top 4 for the final result.
+
+---
 ## Related
 - [Mesh Simplification](/wiki/mesh-simplification)
-- [Quadric Error Metrics](/wiki/qem)
+- [QEM (Quadric Error Metrics)](/wiki/qem)
+- [Edge Loops and Quad Topology](/wiki/quad-topology)

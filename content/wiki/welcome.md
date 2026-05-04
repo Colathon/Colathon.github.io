@@ -17,7 +17,7 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 
 ## Categories
 
-- [Computer Graphics](/wiki/mesh-reduction-knodt) - **(New)** Research on quad-dominant mesh reduction and geometry processing.
-- [Algorithm](/wiki/algorithms) - Fundamental algorithms and data structures.
-- [AI Research](/wiki/ai-research) - Deep dives into modern AI architectures.
-- [Personal Development](/wiki/growth) - Learning methods and productivity.
+- [Computer Graphics](/wiki?tag=Computer+Graphics) - Research on mesh reduction, geometry processing, and rendering.
+- [Algorithm](/wiki?tag=Algorithm) - Fundamental algorithms and data structures.
+- [AI Research](/wiki?tag=AI+Research) - Deep dives into modern AI architectures.
+- [Personal Development](/wiki?tag=Growth) - Learning methods and productivity.
