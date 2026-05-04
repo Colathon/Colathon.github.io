@@ -38,24 +38,40 @@
 -   **注意**：`tags` 是一个数组，如 `["Next.js", "AI"]`。
 
 ### 5. 博客文章 (Blog Posts)
-**文件位置**：`content/blog/first-post.md`
--   **写新文章**：在此文件夹下创建新的 `.md` 文件（文件名建议英文，如 `my-new-post.md`）。
--   **文章格式**：
+**文件位置**：`content/blog/`
+- **目的**：正式的、长篇的技术文章或反思。
+- **发布流程**：在此文件夹下创建 `.md` 文件，确保包含完整的 YAML 前置信息（Title, Date, Summary, Tags）。
+
+### 6. 数字花园 (Wiki Notes)
+**文件位置**：`content/wiki/`
+- **目的**：碎片化的知识、论文笔记、代码片段。
+- **动态增长**：
+    - 在 `content/wiki/` 创建新文件。
+    - **标签过滤**：在 Markdown 头部定义的 `tags` 会自动生效。用户可以通过 `/wiki?tag=标签名` 查看分类。
+    - **更新目录**：如果新增了领域，记得在 `content/wiki/welcome.md` 中添加对应的分类链接。
+- **格式建议**：
     ```markdown
     ---
-    title: "文章标题"
-    date: "2026-05-03"
-    excerpt: "文章摘要"
-    tags: ["标签1", "标签2"]
+    title: "笔记标题"
+    date: "2026-05-04"
+    excerpt: "一句话摘要"
+    tags: ["Computer Graphics", "Research"]
     ---
-    这里开始写 Markdown 正文...
+    正文...
     ```
+
+### 7. 阅读清单与项目 (Reading & Projects)
+**文件位置**：`app/reading/page.tsx` 或 `app/projects/page.tsx`
+- **修改方式**：直接修改代码顶部的 `const papers = [...]` 或 `const projects = [...]` 数组。
+- **更新技巧**：复制现有的对象模板，粘贴后修改内容即可。
 
 ---
 
-## 📸 更换头像
--   **方法**：直接用您的照片替换 `public/avatar.jpg` 文件。
--   **注意**：保持文件名为 `avatar.jpg`，且照片最好是正方形的。
+## 📸 AI 协作流程 (Agent Workflow)
+如果您正在使用 AI 代理（如 Gemini CLI）管理此仓库：
+1. **直接投喂**：发送论文 PDF 或链接给 AI，要求：“基于此内容为我的 Wiki 添加笔记”。
+2. **自动分类**：AI 会自动提取标签并更新 `welcome.md`。
+3. **一键发布**：要求 AI “提交并推送”。
 
 ## ⚠️ 注意事项
 -   **图标引用**：代码中严禁直接导入 `Github` 图标组件（会导致构建报错），请统一使用 `Link2` 组件。

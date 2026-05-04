@@ -16,18 +16,22 @@
 ## Key Evolution
 1.  **V1**: Initial scaffold in Chinese.
 2.  **V2**: English-first redesign, Dark theme, added `About` and `Reading` pages.
-3.  **V3 (Final)**: Aesthetic polish. Large avatar in Hero section, refined typography (Researcher aesthetic), integrated contact chips, and Node 24 deployment pipeline.
+3.  **V3**: Aesthetic polish, Large avatar, Node 24 deployment.
+4.  **V4 (Latest)**: Integrated **Digital Garden (Wiki)** with tag-based filtering. Implemented Server/Client separation for data fetching to support static export with search params.
 
 ## Important Configurations
-- **Next Config**: Static export enabled, image optimization disabled (unoptimized: true) for GitHub Pages compatibility.
+- **Next Config**: Static export enabled, image optimization disabled.
 - **CI/CD**: `.github/workflows/nextjs.yml` configured for Node 24.
-- **Linting**: Relaxed in `next.config.ts` during build to prevent minor warnings from blocking deployment.
+- **Data Fetching**: 
+    - `lib/blog.server.ts`: Server-only file system operations.
+    - `app/wiki/page.tsx`: Server Component fetching initial data.
+    - `app/wiki/WikiListClient.tsx`: Client Component handling dynamic tag filtering via `useSearchParams`.
 
 ## Structural Notes
-- `content/blog/`: Markdown source for blog posts.
+- `content/blog/`: Markdown source for blog posts (Linear/Chronological).
+- `content/wiki/`: Markdown source for digital garden notes (Networked/Interconnected).
 - `app/reading/page.tsx`: Static data array for the library list.
 - `app/projects/page.tsx`: Static data array for projects.
-- `public/avatar.jpg`: Personal profile photo.
 
 ## Past Issues Resolved
 - **Billing**: Deployment failed due to account locking on previous user `Colath`. Switched to `Colathon`.
