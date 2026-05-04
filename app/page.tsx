@@ -18,7 +18,7 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-[1.1]">
-                Researcher, Developer, <span className="italic">Explorer.</span>
+                Researcher, Developer, Explorer.
               </h1>
               
               <p className="text-lg md:text-xl text-zinc-400 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
