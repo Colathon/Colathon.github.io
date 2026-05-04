@@ -13,6 +13,7 @@ function cn(...inputs: ClassValue[]) {
 const navItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "Blog", href: "/blog", icon: BookText },
+  { name: "Wiki", href: "/wiki", icon: BookOpen },
   { name: "Projects", href: "/projects", icon: Code2 },
   { name: "Reading", href: "/reading", icon: BookOpen },
 ];

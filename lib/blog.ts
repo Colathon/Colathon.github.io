@@ -2,55 +2,46 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDirectory = path.join(process.cwd(), "content/blog");
+const BLOG_DIR = path.join(process.cwd(), "content/blog");
+const WIKI_DIR = path.join(process.cwd(), "content/wiki");
 
-export interface PostData {
+export interface ContentData {
   slug: string;
   title: string;
   date: string;
   excerpt: string;
   tags?: string[];
-  content: string;
+  content?: string;
 }
 
-export function getSortedPostsData() {
-  // Get file names under /content/blog
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames
+function getSortedContentData(directory: string) {
+  if (!fs.existsSync(directory)) {
+    return [];
+  }
+  const fileNames = fs.readdirSync(directory);
+  const allData = fileNames
     .filter((fileName) => fileName.endsWith(".md"))
     .map((fileName) => {
-      // Remove ".md" from file name to get slug
       const slug = fileName.replace(/\.md$/, "");
-
-      // Read markdown file as string
-      const fullPath = path.join(postsDirectory, fileName);
+      const fullPath = path.join(directory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-
-      // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents);
 
-      // Combine the data with the slug
       return {
         slug,
         ...(matterResult.data as { title: string; date: string; excerpt: string; tags?: string[] }),
       };
     });
 
-  // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  return allData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export async function getPostData(slug: string): Promise<PostData> {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
+async function getContentData(directory: string, slug: string): Promise<ContentData> {
+  const fullPath = path.join(directory, `${slug}.md`);
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Content not found: ${slug}`);
+  }
   const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
   return {
@@ -58,4 +49,22 @@ export async function getPostData(slug: string): Promise<PostData> {
     content: matterResult.content,
     ...(matterResult.data as { title: string; date: string; excerpt: string; tags?: string[] }),
   };
+}
+
+// Blog specialized functions
+export function getSortedPostsData() {
+  return getSortedContentData(BLOG_DIR);
+}
+
+export async function getPostData(slug: string) {
+  return getContentData(BLOG_DIR, slug);
+}
+
+// Wiki specialized functions
+export function getSortedWikiData() {
+  return getSortedContentData(WIKI_DIR);
+}
+
+export async function getWikiData(slug: string) {
+  return getContentData(WIKI_DIR, slug);
 }

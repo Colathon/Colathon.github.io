@@ -68,7 +68,7 @@ export default function Home() {
 
       {/* Grid Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { 
               icon: BookText, 
@@ -76,6 +76,13 @@ export default function Home() {
               desc: "Deep dives into algorithms, AI research, and software architecture.", 
               link: "/blog",
               label: "Articles"
+            },
+            {
+              icon: BookOpen,
+              title: "Digital Garden",
+              desc: "My personal wiki of interconnected notes and technical snippets.",
+              link: "/wiki",
+              label: "Explore Garden"
             },
             { 
               icon: Code2, 
@@ -95,16 +102,16 @@ export default function Home() {
             <Link 
               key={i} 
               href={item.link}
-              className="group p-10 rounded-[2.5rem] border border-zinc-900 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-zinc-800 transition-all duration-500"
+              className="group p-8 rounded-[2rem] border border-zinc-900 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-zinc-800 transition-all duration-500"
             >
-              <div className="h-14 w-14 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:border-white/20 transition-all duration-500">
-                <item.icon className="h-7 w-7 text-white" />
+              <div className="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-white/20 transition-all duration-500">
+                <item.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-              <p className="text-zinc-500 mb-8 leading-relaxed font-light">
+              <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+              <p className="text-zinc-500 mb-6 leading-relaxed font-light text-sm">
                 {item.desc}
               </p>
-              <div className="text-xs font-black uppercase tracking-[0.2em] text-zinc-600 group-hover:text-white transition-colors flex items-center gap-2">
+              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 group-hover:text-white transition-colors flex items-center gap-2">
                 {item.label} <ArrowRight className="h-3 w-3" />
               </div>
             </Link>
