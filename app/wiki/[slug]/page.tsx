@@ -1,4 +1,4 @@
-import { getWikiData, getSortedWikiData } from "@/lib/blog";
+import { getWikiData, getSortedWikiData } from "@/lib/blog.server";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import { Calendar, Tag, ArrowLeft, Book } from "lucide-react";
