@@ -17,6 +17,7 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 
 ## Categories
 
-- [Algorithm](/wiki/algorithms) - Notes on fundamental algorithms.
+- [Computer Graphics](/wiki/mesh-reduction-knodt) - **(New)** Research on quad-dominant mesh reduction and geometry processing.
+- [Algorithm](/wiki/algorithms) - Fundamental algorithms and data structures.
 - [AI Research](/wiki/ai-research) - Deep dives into modern AI architectures.
 - [Personal Development](/wiki/growth) - Learning methods and productivity.
