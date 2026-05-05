@@ -62,6 +62,7 @@ The method treats **joint influences** (skinning weights) as vertex attributes.
 
 ---
 ## Related
+- [RenderFormer: Neural Rendering Transformer](/wiki/renderformer)
 - [Mesh Simplification](/wiki/mesh-simplification)
 - [QEM (Quadric Error Metrics)](/wiki/qem)
 - [Edge Loops and Quad Topology](/wiki/quad-topology)
