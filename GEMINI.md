@@ -12,6 +12,7 @@ This document defines the rules, conventions, and workflow for the AI Agent mana
 - **Deployment Constraint:** The site uses Static Export (`output: 'export'`). **NEVER** use features that require a Node.js server at runtime (e.g., `cookies()`, `headers()`, or unoptimized `next/image` without specific configuration).
 - **Styling:** Tailwind CSS 4.0. Prioritize existing design tokens and utility classes.
 - **Icons:** `lucide-react`. If an icon causes a build error, immediately swap it for a common alternative (e.g., replace `Github` with `Link2`).
+- **Mathematical Rendering:** The project uses `remark-math` and `rehype-katex` for LaTeX support. Always wrap math in `$...$` (inline) or `$$...$$` (block). Ensure `katex/dist/katex.min.css` is imported in the layout.
 
 ## 3. Content Architecture
 The site's data is heavily markdown-driven, split into two main paradigms:
@@ -20,11 +21,13 @@ The site's data is heavily markdown-driven, split into two main paradigms:
 - **Purpose:** Long-form, polished technical articles, reflections, and major project announcements.
 - **Structure:** Linear, chronological.
 - **Requirement:** Must include comprehensive frontmatter (title, date, summary, tags).
+- **Technical Integrity:** Never summarize or truncate technical content when migrating from source notes. Maintain full mathematical derivation and detail.
 
 ### B. The Personal Wiki (`/content/wiki/`)
 - **Purpose:** "Digital Garden". Fragmented, structured knowledge, quick notes, and interconnected concepts.
 - **Structure:** Networked, constantly evolving.
 - **Requirement:** Agent must actively cross-link entries. When creating a new wiki page, the Agent should scan existing pages to insert relevant internal links (`[Concept](/wiki/concept-slug)`).
+- **Technical Integrity:** Ensure all LaTeX formulas are properly escaped and formatted for the KaTeX renderer.
 
 ## 4. Agent Execution Workflow (The "duanzqy" Method)
 When instructed to "add a note", "write a blog", or "update knowledge":
