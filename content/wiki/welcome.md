@@ -20,4 +20,5 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 - [Computer Graphics](/wiki?tag=Computer+Graphics) - Research on mesh reduction, geometry processing, and rendering.
 - [Algorithm](/wiki?tag=Algorithm) - Fundamental algorithms and data structures.
 - [AI Research](/wiki?tag=AI+Research) - Deep dives into modern AI architectures.
-- [Personal Development](/wiki?tag=Growth) - Learning methods and productivity.
+- [Transformer](/wiki?tag=Transformer) - Notes on attention mechanisms and large language models.
+- [Neural Networks](/wiki?tag=Neural+Networks) - Foundations of deep learning and diffusion models.

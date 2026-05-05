@@ -37,48 +37,54 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="flex flex-col gap-6">
         {wikiEntries.map((entry) => (
           <article 
             key={entry.slug} 
-            className="group p-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-zinc-700 transition-all"
+            className="group p-8 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-zinc-700 transition-all"
           >
-            <div className="flex items-center text-xs text-zinc-500 mb-4 gap-4">
-              <span className="flex items-center">
-                <Calendar className="mr-1.5 h-3 w-3" />
-                {entry.date}
-              </span>
-              {entry.tags && (
-                <div className="flex items-center gap-2">
-                  <Tag className="h-3 w-3" />
-                  <div className="flex gap-1.5">
-                    {entry.tags.slice(0, 2).map(tag => (
-                      <span key={tag} className="hover:text-blue-400 transition-colors cursor-default">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex-grow">
+                <div className="flex items-center text-xs text-zinc-500 mb-4 gap-4">
+                  <span className="flex items-center">
+                    <Calendar className="mr-1.5 h-3 w-3" />
+                    {entry.date}
+                  </span>
+                  {entry.tags && (
+                    <div className="flex items-center gap-2">
+                      <Tag className="h-3 w-3" />
+                      <div className="flex gap-1.5">
+                        {entry.tags.slice(0, 3).map(tag => (
+                          <span key={tag} className="hover:text-blue-400 transition-colors cursor-default">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
+                
+                <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <Link href={`/wiki/${entry.slug}`}>
+                    {entry.title}
+                  </Link>
+                </h2>
+                
+                <p className="text-zinc-400 leading-relaxed max-w-3xl line-clamp-2">
+                  {entry.excerpt}
+                </p>
+              </div>
+
+              <div className="shrink-0">
+                <Link 
+                  href={`/wiki/${entry.slug}`}
+                  className="px-5 py-2.5 rounded-xl bg-zinc-800 text-zinc-300 text-sm font-medium flex items-center gap-2 group-hover:bg-blue-600 group-hover:text-white transition-all"
+                >
+                  Explore Note
+                  <Search className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
-            
-            <h2 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-              <Link href={`/wiki/${entry.slug}`}>
-                {entry.title}
-              </Link>
-            </h2>
-            
-            <p className="text-sm text-zinc-400 leading-relaxed mb-6 line-clamp-2">
-              {entry.excerpt}
-            </p>
-            
-            <Link 
-              href={`/wiki/${entry.slug}`}
-              className="text-xs font-semibold text-zinc-200 flex items-center gap-1 group-hover:text-white"
-            >
-              Explore Note
-              <Search className="h-3 w-3 transition-transform group-hover:scale-110" />
-            </Link>
           </article>
         ))}
       </div>

@@ -28,6 +28,10 @@ The site's data is heavily markdown-driven, split into two main paradigms:
 - **Structure:** Networked, constantly evolving.
 - **Requirement:** Agent must actively cross-link entries. When creating a new wiki page, the Agent should scan existing pages to insert relevant internal links (`[Concept](/wiki/concept-slug)`).
 - **Technical Integrity:** Ensure all LaTeX formulas are properly escaped and formatted for the KaTeX renderer.
+- **Automated Wiki Updates:** When uploading new Wiki entries, the Agent MUST:
+    1.  Update `content/wiki/welcome.md`'s category section to include relevant new tags.
+    2.  Ensure `welcome.md` remains the entry point with updated thematic links.
+    3.  Verify that `app/wiki/page.tsx` continues to pin `welcome.md` to the top.
 
 ## 4. Agent Execution Workflow (The "duanzqy" Method)
 When instructed to "add a note", "write a blog", or "update knowledge":
