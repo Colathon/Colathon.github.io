@@ -2,7 +2,7 @@
 title: "RenderFormer：基于 Transformer 的神经渲染架构"
 date: "2026-05-05"
 excerpt: "从数学与几何视角解析 RenderFormer 架构，探讨注意力机制、RoPE 旋转位置编码以及神经网络渲染的函数逼近本质。"
-tags: ["Computer Graphics", "Neural Rendering", "Transformer", "AI Research"]
+tags: ["Computer Graphics", "Neural Networks", "Transformer"]
 ---
 
 # RenderFormer：从数学与几何视角解析神经渲染

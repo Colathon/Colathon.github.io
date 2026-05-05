@@ -2,7 +2,7 @@
 title: "DDPM：去噪扩散概率模型核心原理"
 date: "2026-05-05"
 excerpt: "深入解析 DDPM 的前向加噪、逆向去噪过程及其数学推导，探讨 Reparameterization Trick、损失函数与时间编码机制。"
-tags: ["AIGC", "Diffusion Model", "Generative AI", "AI Research"]
+tags: ["AIGC", "Diffusion Model", "Neural Networks", "Computer Graphics"]
 ---
 
 # DDPM 核心原理与数学推演
