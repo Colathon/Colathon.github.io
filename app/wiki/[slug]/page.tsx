@@ -1,5 +1,8 @@
 import { getWikiData, getSortedWikiData } from "@/lib/blog.server";
 import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import remarkGfm from "remark-gfm";
+import rehypeKatex from "rehype-katex";
 import Link from "next/link";
 import { Calendar, Tag, ArrowLeft, Book } from "lucide-react";
 
@@ -58,7 +61,12 @@ export default async function WikiEntryPage({ params }: WikiPageProps) {
       </header>
 
       <div className="prose prose-invert prose-zinc max-w-none prose-headings:text-white prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 prose-a:text-blue-400 hover:prose-a:text-blue-300">
-        <ReactMarkdown>{entryData.content || ""}</ReactMarkdown>
+        <ReactMarkdown 
+          remarkPlugins={[remarkGfm, remarkMath]} 
+          rehypePlugins={[rehypeKatex]}
+        >
+          {entryData.content || ""}
+        </ReactMarkdown>
       </div>
 
       <footer className="mt-20 pt-10 border-t border-zinc-800">

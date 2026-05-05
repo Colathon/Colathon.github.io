@@ -1,5 +1,8 @@
 import { getPostData, getSortedPostsData } from "@/lib/blog";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import Link from "next/link";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
 
@@ -54,7 +57,12 @@ export default async function BlogPostPage({ params }: PostPageProps) {
       </header>
 
       <div className="prose prose-invert prose-zinc max-w-none prose-headings:text-white prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800">
-        <ReactMarkdown>{postData.content}</ReactMarkdown>
+        <ReactMarkdown 
+          remarkPlugins={[remarkGfm, remarkMath]} 
+          rehypePlugins={[rehypeKatex]}
+        >
+          {postData.content || ""}
+        </ReactMarkdown>
       </div>
     </article>
   );
