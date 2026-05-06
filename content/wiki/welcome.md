@@ -22,3 +22,4 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 - [Transformer](/wiki?tag=Transformer) - Notes on attention mechanisms, RoPE, and RenderFormer architecture.
 - [Algorithm](/wiki?tag=Algorithm) - Fundamental algorithms and data structures.
 - [AI Research](/wiki?tag=AI+Research) - Advanced research topics and cross-disciplinary AI studies.
+- [Computer Usage](/wiki?tag=Tools) - Notes on computer usage, tools, and workflows, including `uv` for Python.
