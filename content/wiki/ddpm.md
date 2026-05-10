@@ -63,5 +63,6 @@ $$x_{t-1} = \frac{1}{\sqrt{\alpha_t}} \left( x_t - \frac{1 - \alpha_t}{\sqrt{1 -
 
 ---
 ## 相关链接
+- [神经网络的数学架构：仿射变换与流形逼近](/wiki/neural-networks-foundation)
 - [RenderFormer：基于 Transformer 的神经渲染架构](/wiki/renderformer)
 - [AI Research](/wiki?tag=AI+Research)

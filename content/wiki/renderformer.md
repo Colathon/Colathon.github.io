@@ -192,5 +192,6 @@ $$ \text{SwiGLU}(\mathbf{x}) = (\mathbf{x}W_1 \odot \text{SiLU}(\mathbf{x}W_3)) 
 
 ---
 ## 相关链接
+- [神经网络的数学架构：仿射变换与流形逼近](/wiki/neural-networks-foundation)
 - [Mesh Reduction - Knodt](/wiki/mesh-reduction-knodt) - 探讨 3D 网格模型的简化与处理。
-- [AI Research](/wiki?tag=AI+Research) - 更多人工智能前沿架构笔记。
+- [AI Research](/wiki?tag=AI+Research) - 更多人工智能前仰架构笔记。

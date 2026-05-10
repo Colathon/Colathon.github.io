@@ -18,7 +18,8 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 ## Categories
 
 - [Computer Graphics](/wiki?tag=Computer+Graphics) - Research on mesh reduction, rendering, and generative models like DDPM.
-- [Neural Networks](/wiki?tag=Neural+Networks) - Foundations of deep learning, including Diffusion Models and Neural Rendering.
+- [Neural Networks](/wiki?tag=Neural+Networks) - Foundations of deep learning, including [Mathematical Principles](/wiki/neural-networks-foundation), [Universal Approximation Theorem](/wiki/universal-approximation-theorem), Diffusion Models and Neural Rendering.
+- [Mathematics](/wiki?tag=Mathematics) - Advanced topics in functional analysis, including [Sobolev Spaces](/wiki/sobolev-spaces) and regularity theory.
 - [Transformer](/wiki?tag=Transformer) - Notes on attention mechanisms, RoPE, and RenderFormer architecture.
 - [Algorithm](/wiki?tag=Algorithm) - Fundamental algorithms and data structures.
 - [AI Research](/wiki?tag=AI+Research) - Advanced research topics and cross-disciplinary AI studies.
