@@ -33,15 +33,15 @@ export default function BubblesBackground() {
 
     const initBubbles = () => {
       bubbles = [];
-      const bubbleCount = Math.floor((canvas.width * canvas.height) / 15000);
+      const bubbleCount = Math.floor((canvas.width * canvas.height) / 40000); // Reduced count for larger bubbles
       for (let i = 0; i < bubbleCount; i++) {
         bubbles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 1,
-          speedX: (Math.random() - 0.5) * 0.5,
-          speedY: (Math.random() - 0.5) * 0.5,
-          opacity: Math.random() * 0.3 + 0.1,
+          size: Math.random() * 6 + 3, // Increased size (roughly 3x range)
+          speedX: (Math.random() - 0.5) * 0.3,
+          speedY: (Math.random() - 0.5) * 0.3,
+          opacity: Math.random() * 0.15 + 0.05, // Lower opacity for larger bubbles to keep it subtle
         });
       }
     };
