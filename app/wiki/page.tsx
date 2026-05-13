@@ -1,4 +1,5 @@
-import { getSortedWikiData, type ContentData } from "@/lib/blog.server";
+import { getSortedWikiData } from "@/lib/blog.server";
+
 import WikiListClient from "./WikiListClient";
 import { Suspense } from "react";
 

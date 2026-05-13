@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Calendar, Tag, BookOpen, Search, X } from "lucide-react";
+import { Calendar, Tag, BookOpen, X, ArrowRight } from "lucide-react";
 import { ContentData } from "@/lib/blog.server";
 
 export default function WikiListClient({ initialEntries }: { initialEntries: ContentData[] }) {
@@ -37,54 +37,44 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
         )}
       </div>
 
-      <div className="flex flex-col gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
         {wikiEntries.map((entry) => (
           <article 
             key={entry.slug} 
-            className="group p-8 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-zinc-700 transition-all"
+            className="group glass-card p-6 rounded-3xl flex flex-col justify-between"
           >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div className="flex-grow">
-                <div className="flex items-center text-xs text-zinc-500 mb-4 gap-4">
-                  <span className="flex items-center">
-                    <Calendar className="mr-1.5 h-3 w-3" />
-                    {entry.date}
-                  </span>
-                  {entry.tags && (
-                    <div className="flex items-center gap-2">
-                      <Tag className="h-3 w-3" />
-                      <div className="flex gap-1.5">
-                        {entry.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="hover:text-blue-400 transition-colors cursor-default">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-                
-                <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                  <Link href={`/wiki/${entry.slug}`}>
-                    {entry.title}
-                  </Link>
-                </h2>
-                
-                <p className="text-zinc-400 leading-relaxed max-w-3xl line-clamp-2">
-                  {entry.excerpt}
-                </p>
+            <div>
+              <div className="flex items-center text-[10px] text-zinc-500 mb-4 gap-3 uppercase tracking-widest font-bold">
+                <span className="flex items-center">
+                  <Calendar className="mr-1 h-3 w-3" />
+                  {entry.date}
+                </span>
+                {entry.tags && (
+                  <div className="flex items-center gap-1">
+                    <Tag className="h-3 w-3" />
+                    <span>{entry.tags[0]}</span>
+                  </div>
+                )}
               </div>
-
-              <div className="shrink-0">
-                <Link 
-                  href={`/wiki/${entry.slug}`}
-                  className="px-5 py-2.5 rounded-xl bg-zinc-800 text-zinc-300 text-sm font-medium flex items-center gap-2 group-hover:bg-blue-600 group-hover:text-white transition-all"
-                >
-                  Explore Note
-                  <Search className="h-4 w-4" />
+              
+              <h2 className="text-xl font-bold text-white mb-3 group-hover:text-zinc-300 transition-colors line-clamp-2">
+                <Link href={`/wiki/${entry.slug}`}>
+                  {entry.title}
                 </Link>
-              </div>
+              </h2>
+              
+              <p className="text-sm text-zinc-400 leading-relaxed mb-6 line-clamp-3 font-light">
+                {entry.excerpt}
+              </p>
             </div>
+
+            <Link 
+              href={`/wiki/${entry.slug}`}
+              className="mt-auto inline-flex items-center justify-between w-full p-3 rounded-xl bg-white/5 border border-white/5 text-xs font-bold text-white group-hover:bg-white group-hover:text-black transition-all"
+            >
+              Explore Note
+              <ArrowRight className="h-3 w-3" />
+            </Link>
           </article>
         ))}
       </div>

@@ -16,35 +16,48 @@ export default function BlogListPage() {
         </p>
       </div>
 
-      <div className="space-y-16">
+      <div className="space-y-8 animate-fade-in">
         {posts.map((post) => (
-          <article key={post.slug} className="group relative flex flex-col items-start">
-            <h2 className="text-2xl font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors">
-              <Link href={`/blog/${post.slug}`}>
-                <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-                <span className="relative z-10">{post.title}</span>
-              </Link>
-            </h2>
-            <div className="relative z-10 order-first mb-4 flex items-center text-sm text-zinc-500">
-              <Calendar className="mr-2 h-4 w-4" />
-              <time dateTime={post.date}>{post.date}</time>
-              {post.tags && (
-                <div className="ml-6 flex items-center gap-2">
-                  <Tag className="h-3 w-3" />
-                  <div className="flex gap-3">
-                    {post.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              )}
+          <article key={post.slug} className="group relative glass-card p-8 rounded-3xl overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+               <ArrowRight className="h-24 w-24 -rotate-45" />
             </div>
-            <p className="relative z-10 mt-2 text-zinc-400 leading-relaxed">
-              {post.excerpt}
-            </p>
-            <div className="relative z-10 mt-6 flex items-center text-sm font-semibold text-zinc-200 group-hover:text-white">
-              Read More
-              <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+            
+            <div className="relative z-10">
+              <div className="flex items-center text-sm text-zinc-500 mb-4">
+                <Calendar className="mr-2 h-4 w-4" />
+                <time dateTime={post.date}>{post.date}</time>
+                {post.tags && (
+                  <div className="ml-6 flex items-center gap-2">
+                    <Tag className="h-3 w-3" />
+                    <div className="flex gap-3">
+                      {post.tags.map((tag) => (
+                        <span key={tag} className="text-zinc-400 hover:text-white transition-colors cursor-default">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <h2 className="text-2xl font-bold tracking-tight text-white group-hover:text-zinc-300 transition-colors mb-4">
+                <Link href={`/blog/${post.slug}`}>
+                  {post.title}
+                </Link>
+              </h2>
+              
+              <p className="text-zinc-400 leading-relaxed mb-6 max-w-2xl">
+                {post.excerpt}
+              </p>
+              
+              <Link 
+                href={`/blog/${post.slug}`}
+                className="inline-flex items-center text-sm font-semibold text-white group-hover:gap-3 transition-all"
+              >
+                Read Article
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
           </article>
         ))}

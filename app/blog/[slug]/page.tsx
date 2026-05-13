@@ -5,6 +5,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import Link from "next/link";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
 
 interface PostPageProps {
   params: Promise<{
@@ -25,6 +26,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
 
   return (
     <article className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-3xl">
+      <ReadingProgressBar />
       <Link
         href="/blog"
         className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-white mb-12 transition-colors"

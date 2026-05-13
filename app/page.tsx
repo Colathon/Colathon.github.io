@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookText, Code2, BookOpen, Mail, Link2, ExternalLink } from "lucide-react";
+import { ArrowRight, BookText, Code2, BookOpen, Mail, Link2 } from "lucide-react";
 
 export default function Home() {
   return (
