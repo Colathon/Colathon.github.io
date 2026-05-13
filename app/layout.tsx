@@ -4,7 +4,7 @@ import "./globals.css";
 import "katex/dist/katex.min.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BubblesBackground from "@/components/BubblesBackground";
+import AuroraBackground from "@/components/AuroraBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +32,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-screen flex flex-col bg-zinc-950 text-zinc-100">
-        <BubblesBackground />
+        <AuroraBackground />
         <Navbar />
         <main className="flex-grow">
           {children}

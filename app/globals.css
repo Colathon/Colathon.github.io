@@ -53,6 +53,28 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10%, 10%) scale(1.1); }
+  66% { transform: translate(-5%, 15%) scale(0.9); }
+}
+
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-15%, 5%) scale(0.9); }
+  66% { transform: translate(5%, -10%) scale(1.1); }
+}
+
+@keyframes aurora-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, -15%) scale(1.1); }
+  66% { transform: translate(-10%, -5%) scale(0.9); }
+}
+
+.animate-aurora-1 { animation: aurora-1 20s infinite ease-in-out; }
+.animate-aurora-2 { animation: aurora-2 25s infinite ease-in-out; }
+.animate-aurora-3 { animation: aurora-3 18s infinite ease-in-out; }
+
 ::-webkit-scrollbar {
   width: 6px;
 }
