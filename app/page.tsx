@@ -22,7 +22,7 @@ export default function Home() {
               </h1>
               
               <p className="text-lg md:text-xl text-zinc-400 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
-                Hi, I&apos;m <span className="text-white font-medium">Colathon</span>. I build autonomous systems and explore the frontier of human-AI collaboration.
+                Hi, I&apos;m <span className="text-white font-medium">Colathon</span>, exploring Computer Graphics and Deep Learning.
               </p>
 
               {/* Contact Info Chips */}
