@@ -193,5 +193,6 @@ $$ \text{SwiGLU}(\mathbf{x}) = (\mathbf{x}W_1 \odot \text{SiLU}(\mathbf{x}W_3)) 
 ---
 ## 相关链接
 - [神经网络的数学架构：仿射变换与流形逼近](/wiki/neural-networks-foundation)
+- [神经机器翻译的数学推导：带注意力机制的 Seq2Seq 模型](/wiki/nmt-seq2seq-attention) - 探讨加性注意力机制（Additive Attention）在离散序列生成中的应用。
 - [Mesh Reduction - Knodt](/wiki/mesh-reduction-knodt) - 探讨 3D 网格模型的简化与处理。
 - [AI Research](/wiki?tag=AI+Research) - 更多人工智能前仰架构笔记。

@@ -73,6 +73,7 @@ $$ \delta^{(l)} = \left( (W^{(l+1)})^T \delta^{(l+1)} \right) \odot \sigma'(\mat
     *   **数学特性**：将 $\mathbb{R}^n$ 映射到概率单纯形 $\Delta^{n-1}$。它常用于分类层的输出。
 3.  **GeLU (Gaussian Error Linear Unit)**: $\sigma(x) = x \Phi(x)$
     *   **数学特性**：基于标准正态分布的累积分布函数 $\Phi(x)$ 对输入进行加权。这是目前 Transformer（如 **RenderFormer**）中主流的激活函数。
+    *   **深层关联**：正态分布在神经网络理论中无处不在，例如在无限宽极限下，神经网络会收敛为[高斯过程 (Gaussian Process)](/wiki/gaussian-process)（即 NNGP 极限）。
 
 ---
 

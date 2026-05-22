@@ -18,9 +18,10 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 ## Categories
 
 - [Computer Graphics](/wiki?tag=Computer+Graphics) - Research on mesh reduction, rendering, and generative models like DDPM.
-- [Neural Networks](/wiki?tag=Neural+Networks) - Foundations of deep learning, including [Mathematical Principles](/wiki/neural-networks-foundation), [Universal Approximation Theorem](/wiki/universal-approximation-theorem), Diffusion Models and Neural Rendering.
-- [Mathematics](/wiki?tag=Mathematics) - Advanced topics in functional analysis, including [Sobolev Spaces](/wiki/sobolev-spaces) and regularity theory.
-- [Transformer](/wiki?tag=Transformer) - Notes on attention mechanisms, RoPE, and RenderFormer architecture.
+- [Neural Networks](/wiki?tag=Neural+Networks) - Foundations of deep learning, including [Mathematical Principles](/wiki/neural-networks-foundation), [Universal Approximation Theorem](/wiki/universal-approximation-theorem), [NMT Attention Math](/wiki/nmt-seq2seq-attention), Diffusion Models and Neural Rendering.
+- [Mathematics](/wiki?tag=Mathematics) - Advanced topics in functional analysis, including [Sobolev Spaces](/wiki/sobolev-spaces), [Multivariate Normal](/wiki/multivariate-normal), [Gaussian Processes](/wiki/gaussian-process), [Bayesian Optimization](/wiki/bayesian-optimization) and regularity theory.
+- [Transformer](/wiki?tag=Transformer) - Notes on [Attention Mechanisms](/wiki/nmt-seq2seq-attention), RoPE, and RenderFormer architecture.
+- [NLP](/wiki?tag=NLP) - Natural Language Processing research, including [Seq2Seq with Attention](/wiki/nmt-seq2seq-attention).
 - [Algorithm](/wiki?tag=Algorithm) - Fundamental algorithms and data structures.
-- [AI Research](/wiki?tag=AI+Research) - Advanced research topics and cross-disciplinary AI studies.
+- [AI Research](/wiki?tag=AI+Research) - Advanced research topics, including [Gaussian Processes](/wiki/gaussian-process), [Bayesian Optimization](/wiki/bayesian-optimization) and cross-disciplinary AI studies.
 - [Computer Usage](/wiki?tag=Tools) - Notes on computer usage, tools, and workflows, including `uv` for Python.
