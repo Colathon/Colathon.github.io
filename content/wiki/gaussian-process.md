@@ -45,22 +45,25 @@ $$k(t, t') = \sigma_f^2 \exp \left( -\frac{(t - t')^2}{2l^2} \right)$$
 假设我们有已知训练数据（观测点位置） $\mathbf{t} = [t_1, t_2, \dots, t_n]^T$ 以及对应的观测值 $\mathbf{y} = [y_1, y_2, \dots, y_n]^T$。
 给定一个新的预测位置 $t_*$，我们需要预测其对应的函数值 $y_*$。
 
-为了推导完整性，这里**不假设均值函数为 0**。令均值函数为 $m(t)$。
+### 观测噪声模型
+在实际应用中，观测值通常包含噪声。我们假设真实的潜在函数为 $f(t)$，而观测值 $y$ 为：
+$$y = f(t) + \epsilon, \quad \epsilon \sim \mathcal{N}(0, \sigma_n^2)$$
+其中 $\sigma_n^2$ 是观测噪声方差。由于各点噪声相互独立，观测向量 $\mathbf{y}$ 的协方差矩阵变为：
+$$\text{cov}(\mathbf{y}) = \text{cov}(\mathbf{f}) + \text{cov}(\boldsymbol{\epsilon}) = \mathbf{K}(\mathbf{t}, \mathbf{t}) + \sigma_n^2 \mathbf{I}$$
+其中 $\mathbf{I}$ 是单位矩阵。
 
-已知数据与未知预测点必须联合服从多元正态分布：
-$$\begin{bmatrix} \mathbf{y} \\ y_* \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} \mathbf{m}(\mathbf{t}) \\ m(t_*) \end{bmatrix}, \begin{bmatrix} \mathbf{K}(\mathbf{t}, \mathbf{t}) & \mathbf{K}(\mathbf{t}, t_*) \\ \mathbf{K}(t_*, \mathbf{t}) & k(t_*, t_*) \end{bmatrix} \right)$$
+### 后验分布解析解
+为了推导完整性，这里**不假设均值函数为 0**。令均值函数为 $m(t)$。已知数据与未知预测点联合服从多元正态分布：
+$$\begin{bmatrix} \mathbf{y} \\ y_* \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} \mathbf{m}(\mathbf{t}) \\ m(t_*) \end{bmatrix}, \begin{bmatrix} \mathbf{K}(\mathbf{t}, \mathbf{t}) + \sigma_n^2 \mathbf{I} & \mathbf{K}(\mathbf{t}, t_*) \\ \mathbf{K}(t_*, \mathbf{t}) & k(t_*, t_*) \end{bmatrix} \right)$$
 
-其中：
-* $\mathbf{m}(\mathbf{t}) = [m(t_1), \dots, m(t_n)]^T$ 为训练集先验均值向量。
-* $\mathbf{K}(\mathbf{t}, \mathbf{t})$ 为 $n \times n$ 的训练集协方差矩阵。
-* $\mathbf{K}(t_*, \mathbf{t})$ 为 $1 \times n$ 的行向量，代表新点与所有训练点的核函数值。
-
-利用多元正态分布的条件分布定理，在已知 $\mathbf{t}$ 和 $\mathbf{y}$ 的条件下，$y_*$ 的后验分布依然是正态分布，即 $y_* \mid \mathbf{y} \sim \mathcal{N}(\mu_*, \sigma_*^2)$：
+利用多元正态分布的条件分布定理，$y_*$ 的后验分布为 $y_* \mid \mathbf{y} \sim \mathcal{N}(\mu_*, \sigma_*^2)$：
 
 1. **预测均值 (后验均值)**：
-   $$\mu_* = m(t_*) + \mathbf{K}(t_*, \mathbf{t}) \mathbf{K}(\mathbf{t}, \mathbf{t})^{-1} \Big( \mathbf{y} - \mathbf{m}(\mathbf{t}) \Big)$$
+   $$\mu_* = m(t_*) + \mathbf{K}(t_*, \mathbf{t}) \big[ \mathbf{K}(\mathbf{t}, \mathbf{t}) + \sigma_n^2 \mathbf{I} \big]^{-1} \big( \mathbf{y} - \mathbf{m}(\mathbf{t}) \big)$$
 2. **预测方差 (后验方差)**：
-   $$\sigma_*^2 = k(t_*, t_*) - \mathbf{K}(t_*, \mathbf{t}) \mathbf{K}(\mathbf{t}, \mathbf{t})^{-1} \mathbf{K}(\mathbf{t}, t_*)$$
+   $$\sigma_*^2 = k(t_*, t_*) - \mathbf{K}(t_*, \mathbf{t}) \big[ \mathbf{K}(\mathbf{t}, \mathbf{t}) + \sigma_n^2 \mathbf{I} \big]^{-1} \mathbf{K}(\mathbf{t}, t_*)$$
+
+> **注**：若令 $m(\cdot) = 0$ 且 $\sigma_n^2 = 0$，公式将退化为理想无噪声情况下的 GPR 解析解。
 
 ---
 
