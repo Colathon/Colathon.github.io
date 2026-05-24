@@ -24,6 +24,22 @@ const papers = [
     link: "https://arxiv.org/abs/2308.11432",
     tags: ["Survey", "LLM Agents"],
     note: "A comprehensive overview of the current state of AI agents."
+  },
+  {
+    title: "GimmBO: Interactive Generative Image Model Merging via Bayesian Optimization",
+    authors: "Zhengyuan Yang, et al.",
+    source: "arXiv 2026",
+    link: "https://arxiv.org/abs/2601.18585",
+    tags: ["Bayesian Optimization", "Diffusion Models", "Human-in-the-loop"],
+    note: "Introduces a sample-efficient framework for merging diffusion adapters using Preferential Bayesian Optimization and a two-stage search strategy."
+  },
+  {
+    title: "Inverse Rendering for Discrete X-Ray Computed Tomography",
+    authors: "Zhengyuan Yang, et al.",
+    source: "SIGGRAPH Asia 2025",
+    link: "https://arxiv.org/abs/2510.05432",
+    tags: ["Inverse Rendering", "Computed Tomography", "Differentiable Rendering"],
+    note: "Formulates discrete CT reconstruction as a continuous probabilistic optimization problem, using expectation surrogates and modified natural gradients for high-fidelity material decomposition."
   }
 ];
 

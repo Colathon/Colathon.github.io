@@ -38,6 +38,23 @@ $$k(t, t') = \sigma_f^2 \exp \left( -\frac{(t - t')^2}{2l^2} \right)$$
 * $l$（尺度长度）：控制相关性随距离衰减的快慢，决定了函数曲线的平滑程度。
 * $\sigma_f^2$：控制函数在纵坐标上的整体波动幅度。
 
+### 进阶：ARD 与 SAAS 核（处理高维输入）
+对于多维输入 $\mathbf{x} \in \mathbb{R}^d$，标准的核函数往往难以应对“维度灾难”。
+
+1. **ARD (Automatic Relevance Determination)**：
+   为每一维分配独立的尺度长度 $l_i$：
+   $$k(\mathbf{x}, \mathbf{x}') = \sigma_f^2 \exp \left( -\frac{1}{2} \sum_{i=1}^d \frac{(x_i - x_i')^2}{l_i^2} \right)$$
+   若 $l_i \to \infty$，则第 $i$ 维对结果的影响消失，模型自动识别出无关维度。
+
+2. **SAAS (Sparse Axis-Aligned Subspace)**：
+   在有效维度极稀疏的高维场景下，SAAS 模型通过对逆尺度长度 $\rho_i = 1/l_i$ 施加 **半柯西分布 (Half-Cauchy Distribution)** 层次先验来增强稀疏性。
+
+   **半柯西分布表达式**：
+   对于 $x \ge 0$，参数为 $\gamma$ 的 PDF 为：
+   $$p(x; \gamma) = \frac{2}{\pi \gamma \left[ 1 + \left( \frac{x}{\gamma} \right)^2 \right]}$$
+
+   **稀疏原理**：半柯西分布在 0 附近有极高的概率质量（鼓励稀疏），同时拥有极重的尾部（允许少数关键维度穿透先验）。这使得 SAAS 能够从成百上千个维度中精准定位出仅有的几个核心影响因子，是[高维贝叶斯优化](/wiki/bayesian-optimization)的利器。
+
 ---
 
 ## 3. 高斯过程回归 (GPR) 的条件分布推导

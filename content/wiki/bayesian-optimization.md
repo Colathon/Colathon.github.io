@@ -147,7 +147,18 @@ $$f(t_*) \mid \mathcal{D} \sim \mathcal{N}(\mu_{pbo}, \sigma_{pbo}^2)$$
 
 ---
 
+## 3. 应用案例：GimmBO
+
+在最新的生成式 AI 研究中，**[GimmBO](/wiki/gimmbo)** (Generative Image Model Merging via BO) 展示了 PBO 的强大潜力。它将 PBO 应用于扩散模型（Diffusion Models）的适配器（Adapter/LoRA）权重优化。
+
+*   **高维挑战**：通常涉及 20-30 个适配器的线性组合，搜索空间巨大。
+*   **人类在环**：图像的“好坏”无法量化，只能通过用户对生成图像的偏好排序来指导优化。
+*   **策略创新**：引入了 B-有界单纯形（B-capped simplex）约束和 SAAS 先验，极大地提升了在高维稀疏空间中的采样效率。
+
+---
+
 ## 相关链接
+- [GimmBO: 交互式图像模型合并](/wiki/gimmbo) - PBO 在扩散模型中的具体实践。
 - [高斯过程 (Gaussian Processes)](/wiki/gaussian-process) - BO 依赖的核心代理模型。
 - [多元正态分布 (Multivariate Normal)](/wiki/multivariate-normal) - 拉普拉斯近似想要强行还原的目标分布。
 - [神经网络的数学架构](/wiki/neural-networks-foundation) - 与本文对比：基于梯度与反向传播的参数寻优。
