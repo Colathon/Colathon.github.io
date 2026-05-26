@@ -23,5 +23,6 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 - [Transformer](/wiki?tag=Transformer) - Notes on [Attention Mechanisms](/wiki/nmt-seq2seq-attention), RoPE, and RenderFormer architecture.
 - [NLP](/wiki?tag=NLP) - Natural Language Processing research, including [Seq2Seq with Attention](/wiki/nmt-seq2seq-attention).
 - [Algorithm](/wiki?tag=Algorithm) - Fundamental algorithms and data structures.
-- [AI Research](/wiki?tag=AI+Research) - Advanced research topics, including [Gaussian Processes](/wiki/gaussian-process), [Bayesian Optimization](/wiki/bayesian-optimization), [GimmBO](/wiki/gimmbo) and cross-disciplinary AI studies.
+- [AI Research](/wiki?tag=AI+Research) - Advanced research topics, including [Gaussian Processes](/wiki/gaussian-process), [Bayesian Optimization](/wiki/gaussian-process), [GimmBO](/wiki/gimmbo) and cross-disciplinary AI studies.
+- [Parallel Computing](/wiki?tag=Parallel+Computing) - High-performance computing notes, including [OpenMP](/wiki/openmp) and [CUDA](/wiki/cuda).
 - [Computer Usage](/wiki?tag=Tools) - Notes on computer usage, tools, and workflows, including `uv` for Python.

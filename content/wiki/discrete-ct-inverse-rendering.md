@@ -140,4 +140,6 @@ $$
 ## 相关链接
 - [Computer Graphics](/wiki?tag=Computer+Graphics)
 - [Neural Networks](/wiki?tag=Neural+Networks)
+- [OpenMP Parallel Programming](/wiki/openmp)
+- [CUDA Parallel Computing](/wiki/cuda)
 - [RenderFormer: Neural Rendering with Transformers](/wiki/renderformer)
