@@ -21,7 +21,7 @@ $$ f_{\theta} : (\mathcal{M}, \mathbf{c}) \mapsto \mathcal{I} $$
 
 其中：
 *   $\mathcal{M}$ 是场景的几何与材质表示（在这里是三维空间中的三角形面片集合）。
-*   $\mathbf{c} \in SE(3)$ 是相机的位姿（包含位置 and 朝向）。
+*   $\mathbf{c} \in SE(3)$ 是相机的位姿（包含位置 and 朝向）。对于真实场景，这些位姿通常通过 [SfM](/wiki/sfm) 算法（如 COLMAP）获取。
 *   $\mathcal{I} \in \mathbb{R}^{H \times W \times 3}$ 是生成的二维图像张量。
 *   $\theta$ 是神经网络的参数（数百万个实数构成的权重矩阵）。
 

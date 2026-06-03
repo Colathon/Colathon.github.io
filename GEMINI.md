@@ -8,11 +8,12 @@ This document defines the rules, conventions, and workflow for the AI Agent mana
 - **Verification:** Always verify build success (`npm run build`) before concluding a major content or structural update.
 
 ## 2. Technical Stack & Conventions
-- **Framework:** Next.js 15.1.4 (App Router). Strict adherence to App Router paradigms.
+- **Framework:** Next.js 16.2.4 (App Router, Turbopack) + React 19.2.4. Strict adherence to App Router paradigms.
 - **Deployment Constraint:** The site uses Static Export (`output: 'export'`). **NEVER** use features that require a Node.js server at runtime (e.g., `cookies()`, `headers()`, or unoptimized `next/image` without specific configuration).
 - **Styling:** Tailwind CSS 4.0. Prioritize existing design tokens and utility classes.
 - **Icons:** `lucide-react`. If an icon causes a build error, immediately swap it for a common alternative (e.g., replace `Github` with `Link2`).
-- **Mathematical Rendering:** The project uses `remark-math` and `rehype-katex` for LaTeX support. Always wrap math in `$...$` (inline) or `$$...$$` (block). Ensure `katex/dist/katex.min.css` is imported in the layout.
+- **Mathematical Rendering:** The project uses `remark-math` and `rehype-katex` for LaTeX support. Always wrap math in `$...$` (inline) or `$$...$$` (block). `katex/dist/katex.min.css` is already imported in `app/layout.tsx`.
+- **Diagrams:** Markdown is rendered by `react-markdown` with `remark-gfm` only — there is **no Mermaid plugin**. A ` ```mermaid ` block renders as raw source. Use ASCII diagrams in a plain code block or prose instead.
 
 ## 3. Content Architecture
 The site's data is heavily markdown-driven, split into two main paradigms:

@@ -62,6 +62,7 @@ The method treats **joint influences** (skinning weights) as vertex attributes.
 
 ---
 ## Related
+- [Generalized QEM (Garland & Heckbert 1998)](/wiki/generalized-qem)
 - [RenderFormer: Neural Rendering Transformer](/wiki/renderformer)
 - [Mesh Simplification](/wiki/mesh-simplification)
 - [QEM (Quadric Error Metrics)](/wiki/qem)
