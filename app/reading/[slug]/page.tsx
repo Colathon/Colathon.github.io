@@ -25,7 +25,7 @@ export default async function ReportPage({ params }: ReportPageProps) {
   const reportData = await getReportData(slug);
 
   return (
-    <article className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-3xl">
+    <article className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
       <ReadingProgressBar />
       <Link
         href="/reading"
