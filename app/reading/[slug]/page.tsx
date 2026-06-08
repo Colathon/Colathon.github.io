@@ -25,7 +25,7 @@ export default async function ReportPage({ params }: ReportPageProps) {
   const reportData = await getReportData(slug);
 
   return (
-    <article className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-6xl">
+    <article className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-[1760px]">
       <ReadingProgressBar />
       <Link
         href="/reading"
@@ -62,7 +62,7 @@ export default async function ReportPage({ params }: ReportPageProps) {
         </div>
       </header>
 
-      <div className="prose prose-invert prose-zinc max-w-none prose-headings:text-white prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 prose-a:text-blue-400 hover:prose-a:text-blue-300 lg:columns-2 lg:gap-x-16 [&_pre]:break-inside-avoid [&_table]:break-inside-avoid [&_.katex-display]:break-inside-avoid [&_blockquote]:break-inside-avoid [&_h2]:break-after-avoid [&_h3]:break-after-avoid">
+      <div className="prose prose-invert prose-zinc max-w-none prose-headings:text-white prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 prose-a:text-blue-400 hover:prose-a:text-blue-300 lg:columns-2 lg:gap-x-24 [&_pre]:break-inside-avoid [&_table]:break-inside-avoid [&_.katex-display]:break-inside-avoid [&_blockquote]:break-inside-avoid [&_h2]:break-after-avoid [&_h3]:break-after-avoid">
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeKatex]}
