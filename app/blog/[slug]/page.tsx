@@ -25,7 +25,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
   const postData = await getPostData(slug);
 
   return (
-    <article className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
+    <article className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-6xl">
       <ReadingProgressBar />
       <Link
         href="/blog"
@@ -58,7 +58,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
         </div>
       </header>
 
-      <div className="prose prose-invert prose-zinc max-w-none prose-headings:text-white prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800">
+      <div className="prose prose-invert prose-zinc max-w-none prose-headings:text-white prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 lg:columns-2 lg:gap-x-16 [&_pre]:break-inside-avoid [&_table]:break-inside-avoid [&_.katex-display]:break-inside-avoid [&_blockquote]:break-inside-avoid [&_h2]:break-after-avoid [&_h3]:break-after-avoid">
         <ReactMarkdown 
           remarkPlugins={[remarkGfm, remarkMath]} 
           rehypePlugins={[rehypeKatex]}
