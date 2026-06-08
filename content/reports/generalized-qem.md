@@ -345,5 +345,5 @@ $$
 ---
 
 ## 相关内容
-- [Mesh Reduction (Knodt 2024)](/wiki/mesh-reduction-knodt)
+- [Mesh Reduction (Knodt 2024)](/reading/mesh-reduction-knodt)
 - [RenderFormer: Neural Rendering Transformer](/wiki/renderformer)

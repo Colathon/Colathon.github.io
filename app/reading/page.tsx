@@ -19,7 +19,7 @@ const papers: Paper[] = [
     link: "https://arxiv.org/abs/2308.04079",
     tags: ["Computer Graphics", "Gaussian Splatting", "Neural Rendering"],
     note: "Represents scenes as a collection of 3D Gaussians and uses tile-based rasterization for real-time, high-quality novel-view synthesis at 1080p.",
-    reportHref: "/wiki/3d-gaussian-splatting"
+    reportHref: "/reading/3d-gaussian-splatting"
   },
   {
     title: "Simplifying Surfaces with Color and Texture using Quadric Error Metrics",
@@ -28,7 +28,7 @@ const papers: Paper[] = [
     link: "https://www.cs.cmu.edu/~garland/Papers/quadric2.pdf",
     tags: ["Computer Graphics", "Mesh Simplification", "Geometry Processing"],
     note: "Extends the original QEM to handle vertex attributes (color, texture, normals), enabling appearance-aware mesh simplification via generalized quadric matrices.",
-    reportHref: "/wiki/generalized-qem"
+    reportHref: "/reading/generalized-qem"
   },
   {
     title: "Single Edge Collapse Quad-Dominant Mesh Reduction",
@@ -37,7 +37,7 @@ const papers: Paper[] = [
     link: "https://arxiv.org/abs/2411.16874",
     tags: ["Computer Graphics", "Geometry Processing", "Mesh Decimation"],
     note: "Demonstrates that single edge collapse can preserve quad-dominant mesh topology during decimation without sacrificing geometric quality.",
-    reportHref: "/wiki/mesh-reduction-knodt"
+    reportHref: "/reading/mesh-reduction-knodt"
   },
   {
     title: "Voyager: An Open-Ended Embodied Agent with Large Language Models",
