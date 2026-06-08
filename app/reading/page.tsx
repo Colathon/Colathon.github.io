@@ -1,6 +1,17 @@
-import { ExternalLink, Bookmark } from "lucide-react";
+import { ExternalLink, Bookmark, FileText } from "lucide-react";
+import Link from "next/link";
 
-const papers = [
+type Paper = {
+  title: string;
+  authors: string;
+  source: string;
+  link: string;
+  tags: string[];
+  note: string;
+  reportHref?: string;
+};
+
+const papers: Paper[] = [
   {
     title: "Voyager: An Open-Ended Embodied Agent with Large Language Models",
     authors: "Guanzhi Wang, et al.",
@@ -31,7 +42,8 @@ const papers = [
     source: "arXiv 2026",
     link: "https://arxiv.org/abs/2601.18585",
     tags: ["Bayesian Optimization", "Diffusion Models", "Human-in-the-loop"],
-    note: "Introduces a sample-efficient framework for merging diffusion adapters using Preferential Bayesian Optimization and a two-stage search strategy."
+    note: "Introduces a sample-efficient framework for merging diffusion adapters using Preferential Bayesian Optimization and a two-stage search strategy.",
+    reportHref: "/reading/gimmbo"
   },
   {
     title: "Inverse Rendering for Discrete X-Ray Computed Tomography",
@@ -39,7 +51,8 @@ const papers = [
     source: "SIGGRAPH Asia 2025",
     link: "https://arxiv.org/abs/2510.05432",
     tags: ["Inverse Rendering", "Computed Tomography", "Differentiable Rendering"],
-    note: "Formulates discrete CT reconstruction as a continuous probabilistic optimization problem, using expectation surrogates and modified natural gradients for high-fidelity material decomposition."
+    note: "Formulates discrete CT reconstruction as a continuous probabilistic optimization problem, using expectation surrogates and modified natural gradients for high-fidelity material decomposition.",
+    reportHref: "/reading/discrete-ct-inverse-rendering"
   }
 ];
 
@@ -71,12 +84,23 @@ export default function ReadingPage() {
                 <p className="text-zinc-500 text-sm leading-relaxed mb-6">
                   {paper.note}
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {paper.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium">
-                      {tag}
-                    </span>
-                  ))}
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap gap-2">
+                    {paper.tags.map((tag) => (
+                      <span key={tag} className="px-2 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {paper.reportHref && (
+                    <Link
+                      href={paper.reportHref}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-950/60 border border-indigo-800/50 text-indigo-400 text-xs font-medium hover:bg-indigo-900/60 hover:text-indigo-300 transition-all shrink-0"
+                    >
+                      <FileText className="h-3.5 w-3.5" />
+                      阅读报告
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

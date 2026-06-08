@@ -4,6 +4,7 @@ import matter from "gray-matter";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 const WIKI_DIR = path.join(process.cwd(), "content/wiki");
+const REPORTS_DIR = path.join(process.cwd(), "content/reports");
 
 export interface ContentData {
   slug: string;
@@ -67,4 +68,13 @@ export function getSortedWikiData() {
 
 export async function getWikiData(slug: string) {
   return getContentData(WIKI_DIR, slug);
+}
+
+// Reading report specialized functions
+export function getSortedReportsData() {
+  return getSortedContentData(REPORTS_DIR);
+}
+
+export async function getReportData(slug: string) {
+  return getContentData(REPORTS_DIR, slug);
 }

@@ -169,4 +169,3 @@ export OMP_PLACES=threads     # 绑定到所有逻辑线程（含超线程）
 
 ## 相关链接
 - [CUDA Parallel Computing](/wiki/cuda)
-- [Inverse Rendering for Discrete CT](/wiki/discrete-ct-inverse-rendering) (Example of GPU Parallelism)

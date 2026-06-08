@@ -264,4 +264,3 @@ Thread      → 计算 C 矩阵中的一个格子（一次完整的点积）
 
 ## 相关链接
 - [OpenMP Parallel Programming](/wiki/openmp)
-- [Inverse Rendering for Discrete CT](/wiki/discrete-ct-inverse-rendering) (Example of GPU Parallelism)

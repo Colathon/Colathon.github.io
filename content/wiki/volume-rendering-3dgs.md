@@ -105,5 +105,4 @@ $$c_i = \sum_{l=0}^{L} \sum_{m=-l}^{l} k_{lm}^{(i)} Y_l^m(\mathbf{d})$$
 ## 相关链接
 
 - [RenderFormer：基于 Transformer 的神经渲染架构](/wiki/renderformer) - 探讨神经渲染中的 NeRF 频域编码与注意力机制。
-- [Discrete CT Inverse Rendering](/wiki/discrete-ct-inverse-rendering) - 逆渲染的离散化方法。
 - [Computer Graphics](/wiki?tag=Computer+Graphics) - 更多图形学笔记。
