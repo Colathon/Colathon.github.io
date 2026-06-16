@@ -25,4 +25,4 @@ This is where I store my fragmented thoughts, structured knowledge, and quick no
 - [Algorithm](/wiki?tag=Algorithm) - Fundamental algorithms and data structures.
 - [AI Research](/wiki?tag=AI+Research) - Advanced research topics, including [Gaussian Processes](/wiki/gaussian-process), [Bayesian Optimization](/wiki/bayesian-optimization) and cross-disciplinary AI studies.
 - [Parallel Computing](/wiki?tag=Parallel+Computing) - High-performance computing notes, including [OpenMP](/wiki/openmp) and [CUDA](/wiki/cuda).
-- [Computer Usage](/wiki?tag=Tools) - Notes on computer usage, tools, and workflows, including `uv` for Python and [网络基础速查](/wiki/network-basics).
+- [Computer Usage](/wiki?tag=Tools) - Notes on computer usage, tools, and workflows, including [uv](/wiki/uv-python), [Docker Principles](/wiki/docker-principles), and [网络基础速查](/wiki/network-basics).
