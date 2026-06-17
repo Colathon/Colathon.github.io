@@ -27,25 +27,35 @@ tags: ["Computer Graphics", "Gaussian Splatting", "Mesh Reconstruction"]
 
 **密度函数。** 给定高斯泼溅场景,空间任意点 $p$ 的密度由所有高斯按 alpha 混合系数加权求和:
 
-$$d(p) = \sum_g \alpha_g \exp\!\left(-\tfrac{1}{2}(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g)\right) \tag{1}$$
+$$
+d(p) = \sum_g \alpha_g \exp\!\left(-\tfrac{1}{2}(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g)\right) \tag{1}
+$$
 
 其中 $\mu_g,\,\Sigma_g,\,\alpha_g$ 分别是高斯的中心、协方差和混合系数。
 
 **理想情形下只剩最近高斯。** 如果高斯已经分布良好且贴合表面,它们彼此重叠很小。此时对表面附近的点 $p$,贡献最大的那个高斯 $g^*$ 远盖过其余,密度可近似为单项:
 
-$$\alpha_{g^*}\exp\!\left(-\tfrac{1}{2}(p-\mu_{g^*})^{T}\Sigma_{g^*}^{-1}(p-\mu_{g^*})\right) \tag{2}$$
+$$
+\alpha_{g^*}\exp\!\left(-\tfrac{1}{2}(p-\mu_{g^*})^{T}\Sigma_{g^*}^{-1}(p-\mu_{g^*})\right) \tag{2}
+$$
 
-$$g^* = \arg\min_g\Big\{(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g)\Big\} \tag{3}$$
+$$
+g^* = \arg\min_g\Big\{(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g)\Big\} \tag{3}
+$$
 
 > **关于 (3) 取 min 而非 max:** 花括号里是平方马氏距离(恒非负),而单个高斯的贡献是 $\alpha_g\exp(-\tfrac12\times\text{马氏距离})$。马氏距离越小,贡献越大,所以"贡献最大的高斯"等价于"马氏距离最小的高斯"——文字说"最大"针对贡献,公式取 min 针对距离,指的是同一个 $g^*$。
 
 **两个理想化假设。** 希望高斯 **(a)** 扁平(三个缩放因子里最小的 $s_g\to 0$,对应轴 $n_g$ 即表面法向),**(b)** 不半透明(要求 $\alpha_g = 1$,半透明的高斯渲染时直接移除)。在这两个假设下,密度退化为只由最近高斯决定的理想密度:
 
-$$\bar d(p) = \exp\!\left(-\tfrac{1}{2 s_{g^*}^{2}}\,\langle p-\mu_{g^*},\, n_{g^*}\rangle^{2}\right) \tag{5}$$
+$$
+\bar d(p) = \exp\!\left(-\tfrac{1}{2 s_{g^*}^{2}}\,\langle p-\mu_{g^*},\, n_{g^*}\rangle^{2}\right) \tag{5}
+$$
 
 其中用到了扁平近似:
 
-$$(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g) \;\approx\; \frac{1}{s_g^{2}}\,\langle p-\mu_g,\, n_g\rangle^{2} \tag{4}$$
+$$
+(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g) \;\approx\; \frac{1}{s_g^{2}}\,\langle p-\mu_g,\, n_g\rangle^{2} \tag{4}
+$$
 
 #### (4) 的推导
 
@@ -53,11 +63,15 @@ $$(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g) \;\approx\; \frac{1}{s_g^{2}}\,\langle p-\
 
 **② 求逆。** 因 $R$ 正交、$S$ 对角,逆很干净——本质就是 $\Sigma_g^{-1}$ 的谱分解(特征值 $1/s_i^2$,特征向量为主轴 $e_i$):
 
-$$\Sigma_g^{-1} = R_g S_g^{-2} R_g^{T} = \sum_{i=1}^{3}\frac{1}{s_i^{2}}\,e_i e_i^{T}$$
+$$
+\Sigma_g^{-1} = R_g S_g^{-2} R_g^{T} = \sum_{i=1}^{3}\frac{1}{s_i^{2}}\,e_i e_i^{T}
+$$
 
 **③ 代回二次型。** 利用 $(p-\mu_g)^{T}e_i e_i^{T}(p-\mu_g)=\langle p-\mu_g,\,e_i\rangle^2$,马氏距离变成沿三个主轴投影的加权平方和:
 
-$$(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g) = \sum_{i=1}^{3}\frac{1}{s_i^{2}}\,\langle p-\mu_g,\,e_i\rangle^{2}$$
+$$
+(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g) = \sum_{i=1}^{3}\frac{1}{s_i^{2}}\,\langle p-\mu_g,\,e_i\rangle^{2}
+$$
 
 **④ 扁平极限。** 记最小缩放因子 $s_g := s_{\min}$,对应轴 $n_g$(法向)。当高斯被压扁、$s_g\to 0$ 时,系数 $1/s_g^2\to\infty$ 把另外两项有限的 $1/s_2^2,\,1/s_3^2$ 彻底盖过,只剩法向一项,即得 (4)。
 
@@ -65,27 +79,37 @@ $$(p-\mu_g)^{T}\Sigma_g^{-1}(p-\mu_g) = \sum_{i=1}^{3}\frac{1}{s_i^{2}}\,\langle
 
 **从密度到 SDF。** 对理想密度 $\bar d$ 反解(取对数移项),得到对应表面的带符号距离:
 
-$$\bar f(p) = \pm\, s_{g^*}\sqrt{-2\log\big(\bar d(p)\big)} \tag{6}$$
+$$
+\bar f(p) = \pm\, s_{g^*}\sqrt{-2\log\big(\bar d(p)\big)} \tag{6}
+$$
 
 更一般地,对**真实密度** $d$(而非 $\bar d$)套用同一关系,定义理想距离函数(原文 erratum 订正过这里用的是 $d$):
 
-$$f(p) = \pm\, s_{g^*}\sqrt{-2\log\big(d(p)\big)} \tag{7}$$
+$$
+f(p) = \pm\, s_{g^*}\sqrt{-2\log\big(d(p)\big)} \tag{7}
+$$
 
 在理想情形 $d = \bar d$ 时,$f$ 就对应场景真实表面。
 
 **正则项。** 采样一组点 $\mathcal P$,惩罚"解析理想 SDF $f(p)$" 与 "当前表面 SDF 的估计 $\hat f(p)$" 之间的差异:
 
-$$\mathcal R = \frac{1}{|\mathcal P|}\sum_{p\in\mathcal P}\big|\hat f(p) - f(p)\big| \tag{8}$$
+$$
+\mathcal R = \frac{1}{|\mathcal P|}\sum_{p\in\mathcal P}\big|\hat f(p) - f(p)\big| \tag{8}
+$$
 
 * $f(p)$:由 (7) 从密度解析算出的理想 SDF。
 * $\hat f(p)$:当前高斯所成表面的廉价估计——用训练视角的高斯深度图,$\hat f(p)$ 取 $p$ 的深度与其投影处深度图值之差(见原文 Fig. 5)。深度图可直接扩展光栅化器高效渲染。
 * 采样点按高斯分布取,因为这些位置对 $\mathcal R$ 梯度大、信息量高:
 
-$$p \sim \prod_g \mathcal N(\,\cdot\,;\,\mu_g,\,\Sigma_g) \tag{9}$$
+$$
+p \sim \prod_g \mathcal N(\,\cdot\,;\,\mu_g,\,\Sigma_g) \tag{9}
+$$
 
 **法向正则项。** 额外约束 SDF 的梯度方向(即表面法向)与最近高斯的法向轴 $n_{g^*}$ 一致:
 
-$$\mathcal R_{\mathrm{Norm}} = \frac{1}{|\mathcal P|}\sum_{p\in\mathcal P}\left\|\frac{\nabla f(p)}{\lVert\nabla f(p)\rVert_2} - n_{g^*}\right\|_2^{2} \tag{10}$$
+$$
+\mathcal R_{\mathrm{Norm}} = \frac{1}{|\mathcal P|}\sum_{p\in\mathcal P}\left\|\frac{\nabla f(p)}{\lVert\nabla f(p)\rVert_2} - n_{g^*}\right\|_2^{2} \tag{10}
+$$
 
 ### 2. 高效网格提取(§4.2)
 

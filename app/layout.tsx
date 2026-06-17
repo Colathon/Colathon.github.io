@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "katex/dist/katex.min.css";
-import "@fontsource-variable/syne";
-import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/inter";
 import "@fontsource/jetbrains-mono";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

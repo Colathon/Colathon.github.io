@@ -15,8 +15,8 @@
   --color-card: var(--card-bg);
   --color-border: var(--border-color);
   --color-accent: var(--accent-color);
-  --font-display: "Syne Variable", "Syne", sans-serif;
-  --font-sans: "Space Grotesk Variable", "Space Grotesk", sans-serif;
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", var(--font-geist-mono);
 }
 
@@ -31,20 +31,24 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* ── Display Headings (Syne) ─────────────────────────────── */
+/* ── Display Headings (Fraunces serif) ───────────────────── */
 
 .heading-display {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1.05;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
 }
 
 .heading-display-thin {
   font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.015em;
   line-height: 1.1;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
 }
 
 /* ── Editorial Labels ────────────────────────────────────── */
@@ -61,10 +65,13 @@ body {
 /* ── Prose Typography Overrides ──────────────────────────── */
 
 .prose-custom {
-  /* Headings inside prose use Syne */
+  /* Headings inside prose use Fraunces */
   & h1, & h2, & h3, & h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
   }
 
   & h2 {
@@ -81,7 +88,7 @@ body {
     margin-bottom: 0.6em;
   }
 
-  /* Body text stays Space Grotesk */
+  /* Body text uses Inter */
   & p {
     font-size: 1.0625rem;
     line-height: 1.75;
