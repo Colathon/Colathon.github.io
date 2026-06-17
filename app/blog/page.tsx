@@ -8,10 +8,10 @@ export default function BlogListPage() {
   return (
     <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-4xl">
       <div className="mb-16">
-        <h1 className="text-4xl font-bold tracking-tight text-white mb-4">
+        <h1 className="text-4xl heading-display text-white mb-4">
           Technical Blog
         </h1>
-        <p className="text-lg text-zinc-500">
+        <p className="text-lg text-zinc-500 tracking-tight">
           Insights into AI research, software engineering, and the future of technology.
         </p>
       </div>
@@ -24,7 +24,7 @@ export default function BlogListPage() {
             </div>
             
             <div className="relative z-10">
-              <div className="flex items-center text-sm text-zinc-500 mb-4">
+              <div className="flex items-center text-sm text-zinc-500 mb-4 tracking-wider">
                 <Calendar className="mr-2 h-4 w-4" />
                 <time dateTime={post.date}>{post.date}</time>
                 {post.tags && (
@@ -41,7 +41,7 @@ export default function BlogListPage() {
                 )}
               </div>
 
-              <h2 className="text-2xl font-bold tracking-tight text-white group-hover:text-zinc-300 transition-colors mb-4">
+              <h2 className="text-2xl font-display font-bold tracking-tight text-white group-hover:text-zinc-300 transition-colors mb-4">
                 <Link href={`/blog/${post.slug}`}>
                   {post.title}
                 </Link>
@@ -53,7 +53,7 @@ export default function BlogListPage() {
               
               <Link 
                 href={`/blog/${post.slug}`}
-                className="inline-flex items-center text-sm font-semibold text-white group-hover:gap-3 transition-all"
+                className="inline-flex items-center text-sm font-display font-semibold text-white group-hover:gap-3 transition-all"
               >
                 Read Article
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

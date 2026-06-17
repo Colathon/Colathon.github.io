@@ -18,7 +18,7 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
   return (
     <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
       <div className="mb-16 border-b border-zinc-800 pb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-white mb-4 flex items-center gap-3">
+        <h1 className="heading-display text-4xl text-white mb-4 flex items-center gap-3">
           <BookOpen className="h-10 w-10 text-blue-500" />
           Digital Garden
         </h1>
@@ -44,7 +44,7 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
             className="group glass-card p-6 rounded-3xl flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center text-[10px] text-zinc-500 mb-4 gap-3 uppercase tracking-widest font-bold">
+              <div className="flex items-center text-[10px] text-zinc-500 mb-4 gap-3 uppercase tracking-[0.25em] font-bold">
                 <span className="flex items-center">
                   <Calendar className="mr-1 h-3 w-3" />
                   {entry.date}
@@ -57,7 +57,7 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
                 )}
               </div>
               
-              <h2 className="text-xl font-bold text-white mb-3 group-hover:text-zinc-300 transition-colors line-clamp-2">
+              <h2 className="text-xl font-display font-bold text-white mb-3 group-hover:text-zinc-300 transition-colors line-clamp-2">
                 <Link href={`/wiki/${entry.slug}`}>
                   {entry.title}
                 </Link>
@@ -70,7 +70,7 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
 
             <Link 
               href={`/wiki/${entry.slug}`}
-              className="mt-auto inline-flex items-center justify-between w-full p-3 rounded-xl bg-white/5 border border-white/5 text-xs font-bold text-white group-hover:bg-white group-hover:text-black transition-all"
+              className="mt-auto inline-flex items-center justify-between w-full p-3 rounded-xl bg-white/5 border border-white/5 text-xs font-display font-bold text-white group-hover:bg-white group-hover:text-black transition-all"
             >
               Explore Note
               <ArrowRight className="h-3 w-3" />

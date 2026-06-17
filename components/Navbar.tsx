@@ -29,7 +29,7 @@ export default function Navbar() {
             <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-zinc-700 bg-zinc-800 transition-all group-hover:border-zinc-500">
                <img src="/avatar.jpg" alt="C" className="h-full w-full object-cover" />
             </div>
-            <span className="hidden text-sm font-semibold text-zinc-200 sm:block group-hover:text-white transition-colors">
+            <span className="hidden text-sm font-display font-bold text-zinc-200 sm:block group-hover:text-white transition-colors">
               Colathon
             </span>
           </Link>
@@ -41,7 +41,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-white",
+                "text-sm font-medium tracking-wide transition-colors hover:text-white",
                 pathname === item.href ? "text-white" : "text-zinc-400"
               )}
             >

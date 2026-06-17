@@ -29,7 +29,7 @@ export default async function ReportPage({ params }: ReportPageProps) {
       <ReadingProgressBar />
       <Link
         href="/reading"
-        className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-white mb-12 transition-colors"
+        className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-white mb-12 transition-colors tracking-wide"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> 返回阅读清单
       </Link>
@@ -37,9 +37,9 @@ export default async function ReportPage({ params }: ReportPageProps) {
       <header className="mb-16">
         <div className="flex items-center gap-2 text-indigo-400 mb-4">
           <FileText className="h-5 w-5" />
-          <span className="text-sm font-semibold tracking-wider uppercase">阅读报告</span>
+          <span className="label-editorial">阅读报告</span>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight text-white mb-6 sm:text-5xl leading-tight">
+        <h1 className="heading-display text-4xl text-white mb-6 sm:text-5xl leading-tight">
           {reportData.title}
         </h1>
         <div className="flex flex-wrap items-center text-sm text-zinc-500 gap-6">
@@ -62,7 +62,7 @@ export default async function ReportPage({ params }: ReportPageProps) {
         </div>
       </header>
 
-      <div className="prose prose-invert prose-zinc max-w-none prose-headings:text-white prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 prose-a:text-blue-400 hover:prose-a:text-blue-300 lg:columns-2 lg:gap-x-24 [&_pre]:break-inside-avoid [&_table]:break-inside-avoid [&_.katex-display]:break-inside-avoid [&_blockquote]:break-inside-avoid [&_h2]:break-after-avoid [&_h3]:break-after-avoid">
+      <div className="prose prose-custom prose-invert prose-zinc max-w-none prose-headings:text-white prose-headings:font-display prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 prose-a:text-blue-400 hover:prose-a:text-blue-300 lg:columns-2 lg:gap-x-24 [&_pre]:break-inside-avoid [&_table]:break-inside-avoid [&_.katex-display]:break-inside-avoid [&_blockquote]:break-inside-avoid [&_h2]:break-after-avoid [&_h3]:break-after-avoid">
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeKatex]}
@@ -74,7 +74,7 @@ export default async function ReportPage({ params }: ReportPageProps) {
       <footer className="mt-20 pt-10 border-t border-zinc-800">
         <Link
           href="/reading"
-          className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-white transition-colors"
+          className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-white transition-colors tracking-wide"
         >
           <ArrowLeft className="mr-2 h-4 w-4" /> 返回阅读清单
         </Link>

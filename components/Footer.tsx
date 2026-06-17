@@ -10,7 +10,7 @@ export default function Footer() {
             <p className="text-sm text-zinc-400">
               &copy; {new Date().getFullYear()} Colathon. All rights reserved.
             </p>
-            <p className="mt-1 text-xs text-zinc-500">
+            <p className="mt-1 label-editorial">
               Built with Next.js, Tailwind CSS & AI Agents.
             </p>
           </div>
@@ -22,7 +22,7 @@ export default function Footer() {
             <a href="mailto:your-email@example.com" className="text-zinc-500 hover:text-white transition-colors" title="Email">
               <Mail className="h-5 w-5" />
             </a>
-            <Link href="/about" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">
+            <Link href="/about" className="text-sm font-display font-medium text-zinc-400 hover:text-white transition-colors">
               About
             </Link>
           </div>

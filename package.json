@@ -9,7 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.2.8",
+    "@fontsource-variable/space-grotesk": "^5.2.10",
+    "@fontsource-variable/syne": "^5.2.7",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "clsx": "^2.1.1",

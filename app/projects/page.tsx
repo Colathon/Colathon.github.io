@@ -28,10 +28,10 @@ export default function ProjectsPage() {
   return (
     <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
       <div className="mb-16">
-        <h1 className="text-4xl font-bold tracking-tight text-white mb-4">
+        <h1 className="heading-display text-4xl text-white mb-4">
           Featured Projects
         </h1>
-        <p className="text-lg text-zinc-500">
+        <p className="text-lg text-zinc-500 tracking-tight">
           A showcase of my technical experiments, open-source contributions, and research prototypes.
         </p>
       </div>
@@ -42,22 +42,22 @@ export default function ProjectsPage() {
             <div className="h-12 w-12 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
               <Code2 className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">{project.title}</h3>
+            <h3 className="text-2xl font-display font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">{project.title}</h3>
             <p className="text-zinc-400 mb-8 leading-relaxed">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2 mb-10">
               {project.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium">
+                <span key={tag} className="px-3 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium tracking-wide">
                   {tag}
                 </span>
               ))}
             </div>
             <div className="flex gap-6">
-              <a href={project.github} className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-white transition-colors">
+              <a href={project.github} className="inline-flex items-center gap-2 text-sm font-display font-semibold text-zinc-500 hover:text-white transition-colors">
                 <Link2 className="h-4 w-4" /> Source Code
               </a>
-              <a href={project.demo} className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-white transition-colors">
+              <a href={project.demo} className="inline-flex items-center gap-2 text-sm font-display font-semibold text-zinc-500 hover:text-white transition-colors">
                 <ExternalLink className="h-4 w-4" /> Live Demo
               </a>
             </div>

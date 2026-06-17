@@ -105,8 +105,8 @@ export default function ReadingPage() {
   return (
     <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
       <div className="mb-16">
-        <h1 className="text-4xl font-bold tracking-tight text-white mb-4">Reading List</h1>
-        <p className="text-lg text-zinc-500">
+        <h1 className="heading-display text-4xl text-white mb-4">Reading List</h1>
+        <p className="text-lg text-zinc-500 tracking-tight">
           A curated collection of research papers and technical articles I find influential.
         </p>
       </div>
@@ -118,9 +118,9 @@ export default function ReadingPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-3">
                   <Bookmark className="h-4 w-4 text-blue-500" />
-                  <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">{paper.source}</span>
+                  <span className="label-editorial">{paper.source}</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-display font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
                   <a href={paper.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     {paper.title} <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
@@ -132,7 +132,7 @@ export default function ReadingPage() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap gap-2">
                     {paper.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium">
+                      <span key={tag} className="px-2 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium tracking-wide">
                         {tag}
                       </span>
                     ))}

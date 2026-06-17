@@ -9,7 +9,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col-reverse lg:flex-row items-center gap-16 lg:gap-24">
             <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-zinc-400 mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[0.625rem] font-bold tracking-[0.25em] uppercase text-zinc-400 mb-8">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-500"></span>
@@ -17,12 +17,12 @@ export default function Home() {
                 Available for collaboration
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-[1.1]">
+              <h1 className="heading-display text-6xl md:text-8xl font-bold tracking-tight text-white mb-8 leading-[1.1]">
                 Researcher, Developer, Explorer.
               </h1>
               
-              <p className="text-lg md:text-xl text-zinc-400 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
-                Hi, I&apos;m <span className="text-white font-medium">Colathon</span>, exploring Computer Graphics and Deep Learning.
+              <p className="text-lg md:text-xl text-zinc-400 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light tracking-tight">
+                Hi, I&apos;m <span className="text-white font-display font-semibold">Colathon</span>, exploring Computer Graphics and Deep Learning.
               </p>
 
               {/* Contact Info Chips */}
@@ -40,13 +40,13 @@ export default function Home() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-zinc-950 font-bold hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-zinc-950 font-display font-bold tracking-tight hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
                   View Projects <ArrowRight className="h-5 w-5" />
                 </Link>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl border border-zinc-800 bg-transparent text-white font-bold hover:bg-zinc-900 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl border border-zinc-800 bg-transparent text-white font-display font-bold tracking-tight hover:bg-zinc-900 transition-all"
                 >
                   Biography
                 </Link>
@@ -107,11 +107,11 @@ export default function Home() {
               <div className="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-white/20 transition-all duration-500">
                 <item.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-3">{item.title}</h3>
               <p className="text-zinc-500 mb-6 leading-relaxed font-light text-sm">
                 {item.desc}
               </p>
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 group-hover:text-white transition-colors flex items-center gap-2">
+              <div className="text-[0.625rem] font-bold tracking-[0.25em] uppercase text-zinc-600 group-hover:text-white transition-colors flex items-center gap-2">
                 {item.label} <ArrowRight className="h-3 w-3" />
               </div>
             </Link>

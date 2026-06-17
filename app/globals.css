@@ -3,7 +3,7 @@
 
 :root {
   --background: #050505;
-  --foreground: #fafafa;
+  --foreground: #f0f0f0;
   --card-bg: #0a0a0a;
   --border-color: #1a1a1a;
   --accent-color: #ffffff;
@@ -15,16 +15,98 @@
   --color-card: var(--card-bg);
   --color-border: var(--border-color);
   --color-accent: var(--accent-color);
-  --font-sans: "Inter", var(--font-geist-sans);
+  --font-display: "Syne Variable", "Syne", sans-serif;
+  --font-sans: "Space Grotesk Variable", "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", var(--font-geist-mono);
 }
+
+/* ── Base Typography ─────────────────────────────────────── */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "ss02";
+  letter-spacing: -0.01em;
 }
+
+/* ── Display Headings (Syne) ─────────────────────────────── */
+
+.heading-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.heading-display-thin {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* ── Editorial Labels ────────────────────────────────────── */
+
+.label-editorial {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #71717a;
+}
+
+/* ── Prose Typography Overrides ──────────────────────────── */
+
+.prose-custom {
+  /* Headings inside prose use Syne */
+  & h1, & h2, & h3, & h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+
+  & h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2.5em;
+    margin-bottom: 0.8em;
+  }
+
+  & h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+  }
+
+  /* Body text stays Space Grotesk */
+  & p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  & strong {
+    font-weight: 600;
+    color: #fafafa;
+  }
+
+  /* Code blocks */
+  & code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  & blockquote {
+    border-left: 3px solid #27272a;
+    font-style: italic;
+    color: #a1a1aa;
+  }
+}
+
+/* ── Background & Effects ────────────────────────────────── */
 
 .hero-gradient {
   background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
@@ -43,6 +125,8 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
+
+/* ── Animations ──────────────────────────────────────────── */
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
@@ -75,6 +159,8 @@ body {
 .animate-aurora-2 { animation: aurora-2 25s infinite ease-in-out; }
 .animate-aurora-3 { animation: aurora-3 18s infinite ease-in-out; }
 
+/* ── Scrollbar ───────────────────────────────────────────── */
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -88,7 +174,8 @@ body {
   border-radius: 10px;
 }
 
-/* KaTeX Overrides */
+/* ── KaTeX Overrides ─────────────────────────────────────── */
+
 .katex {
   font-size: 1.1em;
   color: inherit;
