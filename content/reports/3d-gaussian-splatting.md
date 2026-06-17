@@ -302,12 +302,13 @@ $$
 - [x] EWA splatting 中 $J$ 的具体推导（见 §3.1）
 - [x] SH 求颜色的展开式（见 §3.4）
 - [x] 各参数梯度的解析式（见 §4.3）
-- [ ] 后续工作：Mip-Splatting（抗锯齿）、2DGS（表面重建）、压缩与动态场景
+- [ ] 后续工作：Mip-Splatting（抗锯齿）、[2DGS](/reading/2d-gaussian-splatting)（表面重建）、压缩与动态场景
 
 ---
 
 ## 相关链接
 
+- [2D Gaussian Splatting 阅读报告](/reading/2d-gaussian-splatting) - 深入分析 2DGS 的几何精确建模与显式相交算法。
 - [体积渲染与 3DGS 的统一](/wiki/volume-rendering-3dgs) - 从概率论视角看 NeRF 与 3DGS 成像公式的代数同构。
 - [Structure-from-Motion (SfM)](/wiki/sfm) - 3DGS 初始化点云的来源。
 - [多元正态分布](/wiki/multivariate-normal) - 高斯椭球协方差结构的数学基础。

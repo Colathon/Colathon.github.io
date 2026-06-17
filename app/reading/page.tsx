@@ -13,6 +13,15 @@ type Paper = {
 
 const papers: Paper[] = [
   {
+    title: "2D Gaussian Splatting for Geometrically Accurate Radiance Fields",
+    authors: "Binbin Huang, et al.",
+    source: "SIGGRAPH 2024",
+    link: "https://arxiv.org/abs/2403.17888",
+    tags: ["Computer Graphics", "Gaussian Splatting", "Neural Rendering"],
+    note: "Approximates primitives as 2D Gaussians to achieve geometrically accurate surface reconstruction while maintaining real-time rendering speeds.",
+    reportHref: "/reading/2d-gaussian-splatting"
+  },
+  {
     title: "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
     authors: "Bernhard Kerbl, et al.",
     source: "SIGGRAPH 2023",
@@ -20,6 +29,15 @@ const papers: Paper[] = [
     tags: ["Computer Graphics", "Gaussian Splatting", "Neural Rendering"],
     note: "Represents scenes as a collection of 3D Gaussians and uses tile-based rasterization for real-time, high-quality novel-view synthesis at 1080p.",
     reportHref: "/reading/3d-gaussian-splatting"
+  },
+  {
+    title: "SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering",
+    authors: "Antoine Guédon, Vincent Lepetit",
+    source: "CVPR 2024",
+    link: "https://arxiv.org/abs/2311.12775",
+    tags: ["Computer Graphics", "Gaussian Splatting", "Mesh Reconstruction"],
+    note: "Regularizes 3D Gaussians to be flat and surface-aligned, then extracts a mesh via density level-set sampling and Poisson reconstruction, finally binding thin Gaussians back to triangles for an editable, high-quality mesh + Gaussian hybrid.",
+    reportHref: "/reading/sugar"
   },
   {
     title: "Simplifying Surfaces with Color and Texture using Quadric Error Metrics",
