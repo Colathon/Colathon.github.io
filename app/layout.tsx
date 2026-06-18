@@ -21,9 +21,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased dark"
+      className="h-full antialiased"
     >
-      <body className="min-h-screen flex flex-col bg-zinc-950 text-zinc-100">
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
         <AuroraBackground />
         <Navbar />
         <main className="flex-grow">

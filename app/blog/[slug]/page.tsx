@@ -29,13 +29,13 @@ export default async function BlogPostPage({ params }: PostPageProps) {
       <ReadingProgressBar />
       <Link
         href="/blog"
-        className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-white mb-12 transition-colors tracking-wide"
+        className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-950 mb-12 transition-colors tracking-wide"
       >
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
       </Link>
 
       <header className="mb-16">
-        <h1 className="text-4xl heading-display text-white mb-6 sm:text-5xl leading-tight">
+        <h1 className="text-4xl heading-display text-zinc-900 mb-6 sm:text-5xl leading-tight">
           {postData.title}
         </h1>
         <div className="flex flex-wrap items-center text-sm text-zinc-500 gap-6">
@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
               <Tag className="mr-2 h-4 w-4" />
               <div className="flex gap-2">
                 {postData.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-medium">
+                  <span key={tag} className="px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-xs font-medium">
                     {tag}
                   </span>
                 ))}
@@ -58,7 +58,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
         </div>
       </header>
 
-      <div className="prose prose-invert prose-zinc prose-custom max-w-none prose-headings:text-white prose-headings:font-display prose-p:text-zinc-400 prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800">
+      <div className="prose prose-zinc prose-custom max-w-none prose-headings:text-zinc-900 prose-headings:font-display prose-p:text-zinc-700 prose-p:leading-relaxed prose-pre:bg-zinc-100 prose-pre:text-zinc-800 prose-pre:border prose-pre:border-zinc-200">
         <ReactMarkdown 
           remarkPlugins={[remarkGfm, remarkMath]} 
           rehypePlugins={[rehypeKatex]}

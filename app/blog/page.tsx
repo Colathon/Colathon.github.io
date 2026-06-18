@@ -8,7 +8,7 @@ export default function BlogListPage() {
   return (
     <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-4xl">
       <div className="mb-16">
-        <h1 className="text-4xl heading-display text-white mb-4">
+        <h1 className="text-4xl heading-display text-zinc-900 mb-4">
           Technical Blog
         </h1>
         <p className="text-lg text-zinc-500 tracking-tight">
@@ -32,7 +32,7 @@ export default function BlogListPage() {
                     <Tag className="h-3 w-3" />
                     <div className="flex gap-3">
                       {post.tags.map((tag) => (
-                        <span key={tag} className="text-zinc-400 hover:text-white transition-colors cursor-default">
+                        <span key={tag} className="text-zinc-500 hover:text-zinc-900 transition-colors cursor-default">
                           {tag}
                         </span>
                       ))}
@@ -41,19 +41,19 @@ export default function BlogListPage() {
                 )}
               </div>
 
-              <h2 className="text-2xl font-display font-bold tracking-tight text-white group-hover:text-zinc-300 transition-colors mb-4">
+              <h2 className="text-2xl font-display font-bold tracking-tight text-zinc-900 group-hover:text-zinc-600 transition-colors mb-4">
                 <Link href={`/blog/${post.slug}`}>
                   {post.title}
                 </Link>
               </h2>
               
-              <p className="text-zinc-400 leading-relaxed mb-6 max-w-2xl">
+              <p className="text-zinc-600 leading-relaxed mb-6 max-w-2xl">
                 {post.excerpt}
               </p>
               
               <Link 
                 href={`/blog/${post.slug}`}
-                className="inline-flex items-center text-sm font-display font-semibold text-white group-hover:gap-3 transition-all"
+                className="inline-flex items-center text-sm font-display font-semibold text-zinc-900 group-hover:gap-3 transition-all"
               >
                 Read Article
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

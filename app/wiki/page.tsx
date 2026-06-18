@@ -15,7 +15,7 @@ export default async function WikiListPage() {
   ];
 
   return (
-    <Suspense fallback={<div className="container mx-auto px-4 py-20 text-white">Loading Garden...</div>}>
+    <Suspense fallback={<div className="container mx-auto px-4 py-20 text-zinc-700">Loading Garden...</div>}>
       <WikiListClient initialEntries={sortedWithPin} />
     </Suspense>
   );

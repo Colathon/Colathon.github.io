@@ -105,7 +105,7 @@ export default function ReadingPage() {
   return (
     <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
       <div className="mb-16">
-        <h1 className="heading-display text-4xl text-white mb-4">Reading List</h1>
+        <h1 className="heading-display text-4xl text-zinc-900 mb-4">Reading List</h1>
         <p className="text-lg text-zinc-500 tracking-tight">
           A curated collection of research papers and technical articles I find influential.
         </p>
@@ -113,26 +113,26 @@ export default function ReadingPage() {
 
       <div className="grid grid-cols-1 gap-8">
         {papers.map((paper) => (
-          <div key={paper.title} className="group relative bg-zinc-900/50 border border-zinc-800 p-8 rounded-3xl hover:bg-zinc-900 transition-all shadow-sm">
+          <div key={paper.title} className="group relative bg-white border border-zinc-200 p-8 rounded-3xl hover:border-zinc-300 hover:shadow-md transition-all shadow-sm">
             <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-3">
-                  <Bookmark className="h-4 w-4 text-blue-500" />
+                  <Bookmark className="h-4 w-4 text-blue-600" />
                   <span className="label-editorial">{paper.source}</span>
                 </div>
-                <h3 className="text-xl font-display font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-display font-semibold text-zinc-900 mb-2 group-hover:text-blue-700 transition-colors">
                   <a href={paper.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     {paper.title} <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </h3>
-                <p className="text-zinc-400 text-sm mb-4 italic">{paper.authors}</p>
-                <p className="text-zinc-500 text-sm leading-relaxed mb-6">
+                <p className="text-zinc-500 text-sm mb-4 italic">{paper.authors}</p>
+                <p className="text-zinc-600 text-sm leading-relaxed mb-6">
                   {paper.note}
                 </p>
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap gap-2">
                     {paper.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 rounded-md bg-zinc-800 text-zinc-500 text-xs font-medium tracking-wide">
+                      <span key={tag} className="px-2 py-1 rounded-md bg-zinc-100 text-zinc-600 text-xs font-medium tracking-wide">
                         {tag}
                       </span>
                     ))}
@@ -140,7 +140,7 @@ export default function ReadingPage() {
                   {paper.reportHref && (
                     <Link
                       href={paper.reportHref}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-950/60 border border-indigo-800/50 text-indigo-400 text-xs font-medium hover:bg-indigo-900/60 hover:text-indigo-300 transition-all shrink-0"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-medium hover:bg-indigo-100 hover:text-indigo-800 transition-all shrink-0"
                     >
                       <FileText className="h-3.5 w-3.5" />
                       阅读报告

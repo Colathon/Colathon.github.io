@@ -17,9 +17,9 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
 
   return (
     <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
-      <div className="mb-16 border-b border-zinc-800 pb-12">
-        <h1 className="heading-display text-4xl text-white mb-4 flex items-center gap-3">
-          <BookOpen className="h-10 w-10 text-blue-500" />
+      <div className="mb-16 border-b border-zinc-200 pb-12">
+        <h1 className="heading-display text-4xl text-zinc-900 mb-4 flex items-center gap-3">
+          <BookOpen className="h-10 w-10 text-blue-600" />
           Digital Garden
         </h1>
         <p className="text-lg text-zinc-500 max-w-2xl mb-6">
@@ -27,10 +27,10 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
         </p>
 
         {tagFilter && (
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm w-fit">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 text-sm w-fit">
             <Tag className="h-3.5 w-3.5" />
             Filtering by: <span className="font-bold">{tagFilter}</span>
-            <Link href="/wiki" className="ml-1 hover:text-white transition-colors">
+            <Link href="/wiki" className="ml-1 hover:text-blue-900 transition-colors">
               <X className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -57,20 +57,20 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
                 )}
               </div>
               
-              <h2 className="text-xl font-display font-bold text-white mb-3 group-hover:text-zinc-300 transition-colors line-clamp-2">
+              <h2 className="text-xl font-display font-bold text-zinc-900 mb-3 group-hover:text-zinc-600 transition-colors line-clamp-2">
                 <Link href={`/wiki/${entry.slug}`}>
                   {entry.title}
                 </Link>
               </h2>
               
-              <p className="text-sm text-zinc-400 leading-relaxed mb-6 line-clamp-3 font-light">
+              <p className="text-sm text-zinc-600 leading-relaxed mb-6 line-clamp-3 font-light">
                 {entry.excerpt}
               </p>
             </div>
 
             <Link 
               href={`/wiki/${entry.slug}`}
-              className="mt-auto inline-flex items-center justify-between w-full p-3 rounded-xl bg-white/5 border border-white/5 text-xs font-display font-bold text-white group-hover:bg-white group-hover:text-black transition-all"
+              className="mt-auto inline-flex items-center justify-between w-full p-3 rounded-xl bg-zinc-900/5 border border-zinc-900/10 text-xs font-display font-bold text-zinc-900 group-hover:bg-zinc-900 group-hover:text-white transition-all"
             >
               Explore Note
               <ArrowRight className="h-3 w-3" />
@@ -82,7 +82,7 @@ export default function WikiListClient({ initialEntries }: { initialEntries: Con
       {wikiEntries.length === 0 && (
         <div className="text-center py-20">
           <p className="text-zinc-500 italic">No notes found for this category.</p>
-          <Link href="/wiki" className="text-blue-500 hover:underline mt-4 inline-block">View all notes</Link>
+          <Link href="/wiki" className="text-blue-600 hover:underline mt-4 inline-block">View all notes</Link>
         </div>
       )}
     </div>

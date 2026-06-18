@@ -22,14 +22,14 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <Link href="/about" className="group flex items-center gap-3">
-            <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-zinc-700 bg-zinc-800 transition-all group-hover:border-zinc-500">
+            <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-zinc-300 bg-zinc-200 transition-all group-hover:border-zinc-500">
                <img src="/avatar.jpg" alt="C" className="h-full w-full object-cover" />
             </div>
-            <span className="hidden text-sm font-display font-bold text-zinc-200 sm:block group-hover:text-white transition-colors">
+            <span className="hidden text-sm font-display font-bold text-zinc-700 sm:block group-hover:text-zinc-950 transition-colors">
               Colathon
             </span>
           </Link>
@@ -41,8 +41,8 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium tracking-wide transition-colors hover:text-white",
-                pathname === item.href ? "text-white" : "text-zinc-400"
+                "text-sm font-medium tracking-wide transition-colors hover:text-zinc-950",
+                pathname === item.href ? "text-zinc-950" : "text-zinc-500"
               )}
             >
               {item.name}
@@ -58,7 +58,7 @@ export default function Navbar() {
                 href={item.href}
                 className={cn(
                   "p-2 rounded-md transition-colors",
-                  pathname === item.href ? "bg-zinc-800 text-white" : "text-zinc-500"
+                  pathname === item.href ? "bg-zinc-200 text-zinc-950" : "text-zinc-500"
                 )}
                 title={item.name}
               >

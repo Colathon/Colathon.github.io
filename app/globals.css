@@ -2,11 +2,11 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #050505;
-  --foreground: #f0f0f0;
-  --card-bg: #0a0a0a;
-  --border-color: #1a1a1a;
-  --accent-color: #ffffff;
+  --background: #f6f4ef;
+  --foreground: #1c1917;
+  --card-bg: #ffffff;
+  --border-color: #e7e3dc;
+  --accent-color: #1c1917;
 }
 
 @theme inline {
@@ -97,7 +97,7 @@ body {
 
   & strong {
     font-weight: 600;
-    color: #fafafa;
+    color: #18181b;
   }
 
   /* Code blocks */
@@ -107,30 +107,30 @@ body {
   }
 
   & blockquote {
-    border-left: 3px solid #27272a;
+    border-left: 3px solid #d6d3d1;
     font-style: italic;
-    color: #a1a1aa;
+    color: #57534e;
   }
 }
 
 /* ── Background & Effects ────────────────────────────────── */
 
 .hero-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
 }
 
 /* ── Animations ──────────────────────────────────────────── */
@@ -173,11 +173,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #f6f4ef;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
+  background: #d6d3d1;
   border-radius: 10px;
 }
 
