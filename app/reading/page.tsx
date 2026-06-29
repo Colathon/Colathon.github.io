@@ -31,6 +31,15 @@ const papers: Paper[] = [
     reportHref: "/reading/3d-gaussian-splatting"
   },
   {
+    title: "Gaussian Opacity Fields: Efficient Adaptive Surface Reconstruction in Unbounded Scenes",
+    authors: "Zehao Yu, Torsten Sattler, Andreas Geiger",
+    source: "SIGGRAPH Asia 2024 / ACM ToG",
+    link: "https://arxiv.org/abs/2404.10772",
+    tags: ["Computer Graphics", "Gaussian Splatting", "Surface Reconstruction"],
+    note: "Defines an opacity field via explicit ray-Gaussian intersection (evaluable at any 3D point) and a per-view minimum, then extracts a compact, detail-rich mesh directly from its level set using a tetrahedral grid + Marching Tetrahedra with binary search — no Poisson reconstruction or TSDF fusion.",
+    reportHref: "/reading/gaussian-opacity-fields"
+  },
+  {
     title: "SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering",
     authors: "Antoine Guédon, Vincent Lepetit",
     source: "CVPR 2024",
