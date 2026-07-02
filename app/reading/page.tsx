@@ -31,6 +31,15 @@ const papers: Paper[] = [
     reportHref: "/reading/3d-gaussian-splatting"
   },
   {
+    title: "Mip-Splatting: Alias-free 3D Gaussian Splatting",
+    authors: "Zehao Yu, Anpei Chen, Binbin Huang, Torsten Sattler, Andreas Geiger",
+    source: "CVPR 2024",
+    link: "https://arxiv.org/abs/2311.16493",
+    tags: ["Computer Graphics", "Gaussian Splatting", "Anti-aliasing"],
+    note: "Diagnoses why 3DGS's screen-space dilation causes erosion, high-frequency artifacts and dilation-brightening when zooming, then replaces it with a Nyquist-bounded 3D smoothing filter (baked into the representation) plus a 2D Mip filter approximating the imaging box filter — enabling alias-free rendering across sampling rates.",
+    reportHref: "/reading/mip-splatting"
+  },
+  {
     title: "Gaussian Opacity Fields: Efficient Adaptive Surface Reconstruction in Unbounded Scenes",
     authors: "Zehao Yu, Torsten Sattler, Andreas Geiger",
     source: "SIGGRAPH Asia 2024 / ACM ToG",
