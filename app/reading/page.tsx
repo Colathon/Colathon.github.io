@@ -13,6 +13,24 @@ type Paper = {
 
 const papers: Paper[] = [
   {
+    title: "LightGaussian: Unbounded 3D Gaussian Compression with 15x Reduction and 200+ FPS",
+    authors: "Zhiwen Fan, Kevin Wang, Kairun Wen, Zehao Zhu, Dejia Xu, Zhangyang Wang",
+    source: "NeurIPS 2024",
+    link: "https://arxiv.org/abs/2311.17245",
+    tags: ["Computer Graphics", "Gaussian Splatting", "Model Compression"],
+    note: "A post-hoc compression pipeline that shrinks a trained 3DGS ~15x while doubling FPS, driven by a single rendering-aware global significance score: it prunes low-significance Gaussians (then fine-tunes to recover), distills high-degree spherical harmonics into a low-degree student model via pseudo-view augmentation, and applies significance-weighted vector quantization to only the least-significant SH coefficients.",
+    reportHref: "/reading/lightgaussian"
+  },
+  {
+    title: "CLoD-GS: Continuous Level-of-Detail via 3D Gaussian Splatting",
+    authors: "Zhigang Cheng, Mingchao Sun, Yu Liu, Zengye Ge, Luyang Tang, Mu Xu, Yangyan Li, Peng Pan",
+    source: "ICLR 2026",
+    link: "https://arxiv.org/abs/2510.09997",
+    tags: ["Computer Graphics", "Gaussian Splatting", "Level of Detail"],
+    note: "Replaces discrete LoD (multiple model copies + popping on transitions) with a continuous LoD baked into a single 3DGS model: each Gaussian learns a distance-decay factor that smoothly fades out less-important primitives, driven by a user-controllable virtual distance scale s_v, and trained coarse-to-fine with a primitive-count regularization loss for quality-scalable rendering at reduced primitive count.",
+    reportHref: "/reading/clod-gs"
+  },
+  {
     title: "2D Gaussian Splatting for Geometrically Accurate Radiance Fields",
     authors: "Binbin Huang, et al.",
     source: "SIGGRAPH 2024",
@@ -74,30 +92,6 @@ const papers: Paper[] = [
     tags: ["Computer Graphics", "Geometry Processing", "Mesh Decimation"],
     note: "Demonstrates that single edge collapse can preserve quad-dominant mesh topology during decimation without sacrificing geometric quality.",
     reportHref: "/reading/mesh-reduction-knodt"
-  },
-  {
-    title: "Voyager: An Open-Ended Embodied Agent with Large Language Models",
-    authors: "Guanzhi Wang, et al.",
-    source: "arXiv 2023",
-    link: "https://arxiv.org/abs/2305.16291",
-    tags: ["AI Agents", "Reinforcement Learning"],
-    note: "A seminal paper on how LLMs can explore open-ended worlds (Minecraft) using code as actions."
-  },
-  {
-    title: "Generative Agents: Interactive Simulacra of Human Behavior",
-    authors: "Joon Sung Park, et al.",
-    source: "arXiv 2023 / CHI 2023",
-    link: "https://arxiv.org/abs/2304.03442",
-    tags: ["Social Simulation", "Generative Agents"],
-    note: "Explores long-term memory and social dynamics in autonomous agents."
-  },
-  {
-    title: "A Survey on Large Language Model based Autonomous Agents",
-    authors: "Lei Wang, et al.",
-    source: "arXiv 2023",
-    link: "https://arxiv.org/abs/2308.11432",
-    tags: ["Survey", "LLM Agents"],
-    note: "A comprehensive overview of the current state of AI agents."
   },
   {
     title: "GimmBO: Interactive Generative Image Model Merging via Bayesian Optimization",
