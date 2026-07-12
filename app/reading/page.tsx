@@ -13,6 +13,15 @@ type Paper = {
 
 const papers: Paper[] = [
   {
+    title: "LODGE: Level-of-Detail Large-Scale Gaussian Splatting with Efficient Rendering",
+    authors: "Jonas Kulhanek, Marie-Julie Rakotosaona, Fabian Manhardt, Christina Tsalicoglou, Michael Niemeyer, Torsten Sattler, Songyou Peng, Federico Tombari",
+    source: "NeurIPS 2025 (Spotlight)",
+    link: "https://arxiv.org/abs/2505.23158",
+    tags: ["Computer Graphics", "Gaussian Splatting", "Large-scale Rendering"],
+    note: "Builds distance-aware Gaussian LoD levels with depth-aware 3D smoothing, importance pruning, and tile-cost-driven thresholds; camera-space chunks then precompute and stream only the relevant active Gaussians, while opacity blending between the two nearest chunks avoids popping on transitions.",
+    reportHref: "/reading/lodge"
+  },
+  {
     title: "LightGaussian: Unbounded 3D Gaussian Compression with 15x Reduction and 200+ FPS",
     authors: "Zhiwen Fan, Kevin Wang, Kairun Wen, Zehao Zhu, Dejia Xu, Zhangyang Wang",
     source: "NeurIPS 2024",
