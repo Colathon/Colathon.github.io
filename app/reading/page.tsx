@@ -13,6 +13,15 @@ type Paper = {
 
 const papers: Paper[] = [
   {
+    title: "Planar Maps: An Interaction Paradigm for Graphic Design",
+    authors: "Patrick Baudelaire, Michel Gangnet",
+    source: "CHI 1989",
+    link: "https://www.lri.fr/~mbl/ENS/FONDIHM/2014/papers/Baudelaire-CHI89.pdf",
+    tags: ["Computer Graphics", "Vector Graphics", "Planar Maps", "HCI"],
+    note: "Recasts layered 2D illustration around explicit vertices, edges, and faces: users iteratively draw strokes, erase local edges, and color regions inside a planar-map object, while retaining classical paths and layer ordering through insert/extract operations.",
+    reportHref: "/reading/planar-maps-graphic-design"
+  },
+  {
     title: "LODGE: Level-of-Detail Large-Scale Gaussian Splatting with Efficient Rendering",
     authors: "Jonas Kulhanek, Marie-Julie Rakotosaona, Fabian Manhardt, Christina Tsalicoglou, Michael Niemeyer, Torsten Sattler, Songyou Peng, Federico Tombari",
     source: "NeurIPS 2025 (Spotlight)",
