@@ -13,6 +13,15 @@ type Paper = {
 
 const papers: Paper[] = [
   {
+    title: "A Large Scale Benchmark and an Inclusion-Based Algorithm for Continuous Collision Detection",
+    authors: "Bolun Wang, Zachary Ferguson, Teseo Schneider, Xin Jiang, Marco Attene, Daniele Panozzo",
+    source: "ACM TOG 2021",
+    link: "https://doi.org/10.1145/3460775",
+    tags: ["Computer Graphics", "Collision Detection", "Physical Simulation"],
+    note: "Uses 60 million exact-ground-truth narrow-phase queries to map the failure modes of interval, numerical, Bernstein and root-parity CCD, then turns classical inclusion bisection into a practical conservative solver through a multi-affine eight-corner AABB predicate, floating-point filters, output-aware splitting, and an L∞ minimum-separation extension.",
+    reportHref: "/reading/tight-inclusion-ccd"
+  },
+  {
     title: "Planar Maps: An Interaction Paradigm for Graphic Design",
     authors: "Patrick Baudelaire, Michel Gangnet",
     source: "CHI 1989",
