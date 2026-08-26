@@ -13,6 +13,15 @@ type Paper = {
 
 const papers: Paper[] = [
   {
+    title: "Efficient Multiscale Lanczos Eigenpair Extraction",
+    authors: "Theo Braune, Jérémie Dumas, Jean-Marc Thiery",
+    source: "ACM TOG / SIGGRAPH 2026",
+    link: "https://doi.org/10.1145/3811367",
+    tags: ["Numerical Linear Algebra", "Multigrid", "Computer Graphics"],
+    note: "Propagates an entire Lanczos basis and its coarse tridiagonal relation through a multigrid hierarchy, reverse-engineering each recurrence into a warm start for the fine-level shift-invert solve; multiscale Krylov enrichment and synchronized QR shifts repair spectral drift. It scales strongly for very large smooth low-frequency problems, but remains dependent on hierarchy and inner-solver quality.",
+    reportHref: "/reading/efficient-multiscale-lanczos-eigenpair-extraction"
+  },
+  {
     title: "A Large Scale Benchmark and an Inclusion-Based Algorithm for Continuous Collision Detection",
     authors: "Bolun Wang, Zachary Ferguson, Teseo Schneider, Xin Jiang, Marco Attene, Daniele Panozzo",
     source: "ACM TOG 2021",
