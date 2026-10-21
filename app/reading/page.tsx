@@ -13,6 +13,24 @@ type Paper = {
 
 const papers: Paper[] = [
   {
+    title: "A Local/Global Approach to Mesh Parameterization",
+    authors: "Ligang Liu, Lei Zhang, Yin Xu, Craig Gotsman, Steven J. Gortler",
+    source: "Computer Graphics Forum / SGP 2008",
+    link: "https://doi.org/10.1111/j.1467-8659.2008.01290.x",
+    tags: ["Computer Graphics", "Geometry Processing", "Mesh Parameterization"],
+    note: "Recasts low-distortion parameterization as alternating per-triangle Procrustes fits and a global Poisson solve: the local step extracts each triangle's closest proper rotation, while the global step stitches those targets through one prefactorized cotangent Laplacian. The resulting ARAP map trades a small amount of angular accuracy for dramatically more uniform area, but does not guarantee injectivity.",
+    reportHref: "/reading/local-global-mesh-parameterization"
+  },
+  {
+    title: "Bijective Parameterization with Free Boundaries",
+    authors: "Jason Smith, Scott Schaefer",
+    source: "ACM TOG / SIGGRAPH 2015",
+    link: "https://doi.org/10.1145/2766947",
+    tags: ["Computer Graphics", "Geometry Processing", "Bijective Mapping"],
+    note: "Combines a degeneration barrier, compactly supported boundary repulsion, spatial hashing, and exact first-event line search so that a free-boundary chart remains locally and globally injective throughout optimization. Its novelty lies in the complete guarantee-preserving system rather than any one standard optimizer or collision primitive.",
+    reportHref: "/reading/bijective-parameterization-free-boundaries"
+  },
+  {
     title: "Efficient Multiscale Lanczos Eigenpair Extraction",
     authors: "Theo Braune, Jérémie Dumas, Jean-Marc Thiery",
     source: "ACM TOG / SIGGRAPH 2026",
