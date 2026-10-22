@@ -1,90 +1,49 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Calendar, Tag, BookOpen, X, ArrowRight } from "lucide-react";
-import { ContentData } from "@/lib/blog.server";
+import { ArrowRight, ArrowUpRight, Compass } from "lucide-react";
+import type { ContentData } from "@/lib/blog.server";
+import CollectionControls from "@/components/CollectionControls";
+import { collectionTags, matchesQuery, normalizeTag } from "@/lib/collections";
 
 export default function WikiListClient({ initialEntries }: { initialEntries: ContentData[] }) {
   const searchParams = useSearchParams();
-  const tagFilter = searchParams.get("tag");
-
-  const wikiEntries = tagFilter
-    ? initialEntries.filter((entry) => 
-        entry.tags?.some(t => t.toLowerCase() === tagFilter.toLowerCase())
-      )
-    : initialEntries;
+  const router = useRouter();
+  const tag = normalizeTag(searchParams.get("tag") ?? "");
+  const [query, setQuery] = useState("");
+  const notes = initialEntries.filter((entry) => entry.slug !== "welcome");
+  const tags = collectionTags(notes);
+  const entries = notes.filter((entry) => (!tag || entry.tags?.some((value) => normalizeTag(value) === tag)) && matchesQuery(query, [entry.title, entry.excerpt, ...(entry.tags ?? [])]));
+  function setTag(value: string) {
+    router.replace(value ? `/wiki?tag=${encodeURIComponent(value)}` : "/wiki", { scroll: false });
+  }
 
   return (
-    <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8 max-w-5xl">
-      <div className="mb-16 border-b border-zinc-200 pb-12">
-        <h1 className="heading-display text-4xl text-zinc-900 mb-4 flex items-center gap-3">
-          <BookOpen className="h-10 w-10 text-blue-600" />
-          Digital Garden
-        </h1>
-        <p className="text-lg text-zinc-500 max-w-2xl mb-6">
-          A collection of interconnected notes, research, and technical snippets. 
-        </p>
-
-        {tagFilter && (
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 text-sm w-fit">
-            <Tag className="h-3.5 w-3.5" />
-            Filtering by: <span className="font-bold">{tagFilter}</span>
-            <Link href="/wiki" className="ml-1 hover:text-blue-900 transition-colors">
-              <X className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-        )}
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-        {wikiEntries.map((entry) => (
-          <article 
-            key={entry.slug} 
-            className="group glass-card p-6 rounded-3xl flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex items-center text-[10px] text-zinc-500 mb-4 gap-3 uppercase tracking-[0.25em] font-bold">
-                <span className="flex items-center">
-                  <Calendar className="mr-1 h-3 w-3" />
-                  {entry.date}
-                </span>
-                {entry.tags && (
-                  <div className="flex items-center gap-1">
-                    <Tag className="h-3 w-3" />
-                    <span>{entry.tags[0]}</span>
-                  </div>
-                )}
-              </div>
-              
-              <h2 className="text-xl font-display font-bold text-zinc-900 mb-3 group-hover:text-zinc-600 transition-colors line-clamp-2">
-                <Link href={`/wiki/${entry.slug}`}>
-                  {entry.title}
-                </Link>
-              </h2>
-              
-              <p className="text-sm text-zinc-600 leading-relaxed mb-6 line-clamp-3 font-light">
-                {entry.excerpt}
-              </p>
-            </div>
-
-            <Link 
-              href={`/wiki/${entry.slug}`}
-              className="mt-auto inline-flex items-center justify-between w-full p-3 rounded-xl bg-zinc-900/5 border border-zinc-900/10 text-xs font-display font-bold text-zinc-900 group-hover:bg-zinc-900 group-hover:text-white transition-all"
-            >
-              Explore Note
-              <ArrowRight className="h-3 w-3" />
-            </Link>
+    <div className="site-shell pb-24">
+      <header className="collection-header">
+        <p className="eyebrow mb-5">The wiki / {notes.length} connected notes</p>
+        <h1 className="heading-display text-4xl sm:text-6xl">Digital Garden<span className="text-accent">.</span></h1>
+        <p className="mt-5 max-w-2xl text-base leading-7 text-stone-500">A growing notebook of concepts, derivations, and useful tools.<br className="hidden sm:block" /> Start with a topic, or look up something you&apos;re curious about.</p>
+      </header>
+      <Link href="/wiki/welcome" className="mb-8 flex items-center gap-4 rounded-md border border-[#d5dfcf] bg-[#e9eee3] px-5 py-4 text-accent">
+        <Compass className="h-5 w-5 shrink-0" /><span className="flex-1 text-sm"><strong className="font-medium">New to the garden?</strong><span className="mt-1 block text-xs text-stone-600 sm:ml-2 sm:inline">Open the topic map and find a place to start.</span></span><ArrowRight className="h-4 w-4 shrink-0" />
+      </Link>
+      <CollectionControls query={query} onQueryChange={setQuery} tag={tag} onTagChange={setTag} tags={tags} placeholder="Search notes, summaries, and tags…" />
+      <div className="mb-5 flex items-center justify-between gap-4 text-xs text-stone-500"><p role="status">{entries.length} {entries.length === 1 ? "note" : "notes"}{tag ? ` in ${tags.find((item) => item.value === tag)?.label ?? tag}` : " in the garden"}</p><span>Newest first</span></div>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {entries.map((entry) => (
+          <article key={entry.slug} className="note-card group">
+            <time dateTime={entry.date} className="font-mono text-[11px] text-stone-500">{entry.date}</time>
+            <h2 className="mt-4 text-lg font-semibold leading-8 text-stone-800 group-hover:text-accent"><Link href={`/wiki/${entry.slug}`}>{entry.title}</Link></h2>
+            <p className="mb-6 mt-3 line-clamp-3 text-sm leading-7 text-stone-500">{entry.excerpt}</p>
+            <div className="mt-auto flex flex-wrap gap-2">{entry.tags?.slice(0, 2).map((value) => <Link key={value} href={`/wiki?tag=${encodeURIComponent(value)}`} className="rounded bg-stone-100 px-2 py-1 text-[10px] leading-5 text-stone-600 hover:bg-[#e6ebe1]">{value}</Link>)}</div>
+            <Link href={`/wiki/${entry.slug}`} aria-label={`Read note: ${entry.title}`} className="mt-5 flex min-h-10 items-center justify-between border-t border-border pt-3 text-xs font-medium text-accent">Read note <ArrowUpRight className="h-4 w-4" /></Link>
           </article>
         ))}
       </div>
-
-      {wikiEntries.length === 0 && (
-        <div className="text-center py-20">
-          <p className="text-zinc-500 italic">No notes found for this category.</p>
-          <Link href="/wiki" className="text-blue-600 hover:underline mt-4 inline-block">View all notes</Link>
-        </div>
-      )}
+      {entries.length === 0 && <div className="rounded-md border border-dashed border-border px-6 py-16 text-center"><h2 className="font-display text-2xl">No notes found</h2><p className="mt-3 text-sm text-stone-500">Try a different keyword or explore another topic.</p><button onClick={() => { setQuery(""); setTag(""); }} className="mt-6 min-h-11 text-sm font-medium text-accent underline underline-offset-4">Clear all filters</button></div>}
     </div>
   );
 }

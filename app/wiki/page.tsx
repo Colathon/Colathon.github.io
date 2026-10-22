@@ -2,6 +2,9 @@ import { getSortedWikiData } from "@/lib/blog.server";
 
 import WikiListClient from "./WikiListClient";
 import { Suspense } from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Digital Garden" };
 
 export default async function WikiListPage() {
   // Fetch data on the server

@@ -1,3 +1,5 @@
+import ArticleOutline from "@/components/ArticleOutline";
+import { remarkHeadingIds } from "@/lib/markdown";
 import { getPostData, getSortedPostsData } from "@/lib/blog";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -18,6 +20,12 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
+}
+
+export async function generateMetadata({ params }: PostPageProps) {
+  const { slug } = await params;
+  const entry = await getPostData(slug);
+  return { title: entry.title, description: entry.excerpt };
 }
 
 export default async function BlogPostPage({ params }: PostPageProps) {
@@ -46,7 +54,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
           {postData.tags && (
             <div className="flex items-center">
               <Tag className="mr-2 h-4 w-4" />
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {postData.tags.map((tag) => (
                   <span key={tag} className="px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-xs font-medium">
                     {tag}
@@ -58,9 +66,11 @@ export default async function BlogPostPage({ params }: PostPageProps) {
         </div>
       </header>
 
+      <ArticleOutline content={postData.content || ""} />
+
       <div className="prose prose-zinc prose-custom max-w-none prose-headings:text-zinc-900 prose-headings:font-display prose-p:text-zinc-700 prose-p:leading-relaxed prose-pre:bg-zinc-100 prose-pre:text-zinc-800 prose-pre:border prose-pre:border-zinc-200">
-        <ReactMarkdown 
-          remarkPlugins={[remarkGfm, remarkMath]} 
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm, remarkMath, remarkHeadingIds]}
           rehypePlugins={[rehypeKatex]}
         >
           {postData.content || ""}

@@ -1,72 +1,32 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { Home, BookText, Code2, BookOpen } from "lucide-react";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 const navItems = [
-  { name: "Home", href: "/", icon: Home },
-  { name: "Blog", href: "/blog", icon: BookText },
-  { name: "Wiki", href: "/wiki", icon: BookOpen },
-  { name: "Projects", href: "/projects", icon: Code2 },
-  { name: "Reading", href: "/reading", icon: BookOpen },
+  { name: "Wiki", href: "/wiki" },
+  { name: "Reading", href: "/reading" },
+  { name: "Blog", href: "/blog" },
+  { name: "Projects", href: "/projects" },
+  { name: "About", href: "/about" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-4">
-          <Link href="/about" className="group flex items-center gap-3">
-            <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-zinc-300 bg-zinc-200 transition-all group-hover:border-zinc-500">
-               <img src="/avatar.jpg" alt="C" className="h-full w-full object-cover" />
-            </div>
-            <span className="hidden text-sm font-display font-bold text-zinc-700 sm:block group-hover:text-zinc-950 transition-colors">
-              Colathon
-            </span>
-          </Link>
-        </div>
-
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "text-sm font-medium tracking-wide transition-colors hover:text-zinc-950",
-                pathname === item.href ? "text-zinc-950" : "text-zinc-500"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+      <div className="site-shell flex flex-wrap items-center justify-between gap-x-8 pt-4 sm:h-20 sm:flex-nowrap sm:py-0">
+        <Link href="/" aria-label="Colathon home" className="flex items-center gap-3">
+          <Image src="/avatar.jpg" alt="" width={34} height={34} className="h-[34px] w-[34px] rounded-full object-cover" />
+          <span className="font-display text-xl font-semibold tracking-tight">Colathon<span className="text-accent">.</span></span>
+        </Link>
+        <nav aria-label="Main navigation" className="mt-3 flex w-full items-center justify-between gap-1 sm:mt-0 sm:w-auto sm:gap-6">
+          {navItems.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link ${active ? "nav-link-active" : ""}`}>{item.name}</Link>;
+          })}
         </nav>
-
-        <div className="md:hidden flex items-center gap-2">
-           <nav className="flex items-center gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "p-2 rounded-md transition-colors",
-                  pathname === item.href ? "bg-zinc-200 text-zinc-950" : "text-zinc-500"
-                )}
-                title={item.name}
-              >
-                <item.icon className="h-5 w-5" />
-              </Link>
-            ))}
-          </nav>
-        </div>
       </div>
     </header>
   );

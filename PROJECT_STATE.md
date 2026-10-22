@@ -32,7 +32,7 @@
 ## Structural Notes
 - `content/blog/`: Markdown source for blog posts (Linear/Chronological).
 - `content/wiki/`: Markdown source for digital garden notes (Networked/Interconnected).
-- `app/reading/page.tsx`: Static data array for the library list.
+- `lib/papers.ts`: Paper bibliography; `app/reading/ReadingListClient.tsx` renders the searchable report list.
 - `app/projects/page.tsx`: Static data array for projects.
 
 ## Past Issues Resolved

@@ -45,7 +45,7 @@ Colathon 的个人主页 + **数字花园（Digital Garden）Wiki**。Next.js �
 | `content/blog/*.md` | 长文、线性、按时间 | 页面 import `@/lib/blog` |
 | `content/wiki/*.md` | 数字花园、网状互链 | 页面 import `@/lib/blog.server` |
 | `content/reports/*.md` | 论文阅读报告（算法精读） | `@/lib/blog.server`（`getReportData`） |
-| `app/reading/page.tsx` | 阅读清单 + 报告入口 | 文件顶部 `const papers = [...]` |
+| `app/reading/page.tsx` | 阅读清单 + 报告入口 | `lib/papers.ts` + `content/reports/*.md` |
 | `app/projects/page.tsx` | 项目展示 | 文件顶部 `const projects = [...]` |
 
 - **frontmatter**（blog / wiki / reports 通用）：`title` / `date`（`YYYY-MM-DD`）/ `excerpt` / `tags: [...]`。`excerpt` 缺失会在列表页留空。
@@ -58,7 +58,7 @@ Colathon 的个人主页 + **数字花园（Digital Garden）Wiki**。Next.js �
 > 用户提供报告正文内容；Agent 负责联网查论文链接并完成以下步骤。
 
 1. **建报告文件**：`content/reports/<slug>.md`，写全 frontmatter（`title` 用论文全名，`tags` 与论文领域一致）。技术内容**不删减、不截断**，保留完整推导。
-2. **在阅读清单注册论文**：编辑 `app/reading/page.tsx` 顶部的 `papers` 数组，新增一条或为已有条目补充 `reportHref: "/reading/<slug>"`。字段说明：
+2. **在阅读清单注册论文**：编辑 `lib/papers.ts` 中的 `papers` 数组，新增一条或为已有条目补充 `reportHref: "/reading/<slug>"`。字段说明：
    ```ts
    {
      title: "论文全名",

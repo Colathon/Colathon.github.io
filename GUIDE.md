@@ -18,9 +18,11 @@
 
 ### 1. 首页 (Home Page)
 **文件位置**：`app/page.tsx`
--   **大标题**：查找 `Researcher, Developer, Explorer.` 进行修改。
--   **欢迎语**：查找 `Hi, I'm Colathon.` 修改下方的文字。
--   **邮箱/GitHub**：查找 `your-email@example.com` 和 `@Colathon` 进行替换。
+- 首页以 Wiki 和 Reading Reports 为主要入口，笔记数、报告数与最近更新从 Markdown 自动生成。
+- 主题入口在文件顶部的 `topics` 数组中维护。
+- 邮箱与 GitHub 联系方式集中在 `lib/site.ts`，供页脚与关于页使用。
+- Wiki 和 Reading 列表支持关键词与主题组合筛选；关键词匹配标题、摘要、标签，以及论文作者等资料，不搜索全文。
+- 长文的二、三级标题会自动生成可折叠目录，无需手动维护锚点。
 
 ### 2. 关于我 (About Page)
 **文件位置**：`app/about/page.tsx`
@@ -28,7 +30,7 @@
 -   **研究兴趣**：搜索 `Research Interests`，修改下方的列表项（`<li>` 标签内）。
 
 ### 3. 阅读清单 (Reading List)
-**文件位置**：`app/reading/page.tsx`
+**文件位置**：`lib/papers.ts`
 -   **书籍与论文**：修改文件顶部的 `const papers = [...]` 数组。
 -   **注意**：每项包含 `title` (标题), `authors` (作者), `source` (来源), `link` (链接), `note` (个人点评)。
 
@@ -61,7 +63,7 @@
     ```
 
 ### 7. 阅读清单与项目 (Reading & Projects)
-**文件位置**：`app/reading/page.tsx` 或 `app/projects/page.tsx`
+**文件位置**：`lib/papers.ts` 或 `app/projects/page.tsx`
 - **修改方式**：直接修改代码顶部的 `const papers = [...]` 或 `const projects = [...]` 数组。
 - **更新技巧**：复制现有的对象模板，粘贴后修改内容即可。
 

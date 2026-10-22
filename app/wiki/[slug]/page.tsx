@@ -1,3 +1,5 @@
+import ArticleOutline from "@/components/ArticleOutline";
+import { remarkHeadingIds } from "@/lib/markdown";
 import { getWikiData, getSortedWikiData } from "@/lib/blog.server";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
@@ -18,6 +20,12 @@ export async function generateStaticParams() {
   return entries.map((entry) => ({
     slug: entry.slug,
   }));
+}
+
+export async function generateMetadata({ params }: WikiPageProps) {
+  const { slug } = await params;
+  const entry = await getWikiData(slug);
+  return { title: entry.title, description: entry.excerpt };
 }
 
 export default async function WikiEntryPage({ params }: WikiPageProps) {
@@ -50,7 +58,7 @@ export default async function WikiEntryPage({ params }: WikiPageProps) {
           {entryData.tags && (
             <div className="flex items-center">
               <Tag className="mr-2 h-4 w-4" />
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {entryData.tags.map((tag) => (
                   <span key={tag} className="text-zinc-600 text-xs">
                     #{tag}
@@ -62,9 +70,11 @@ export default async function WikiEntryPage({ params }: WikiPageProps) {
         </div>
       </header>
 
+      <ArticleOutline content={entryData.content || ""} />
+
       <div className="prose prose-zinc prose-custom max-w-none prose-headings:text-zinc-900 prose-headings:font-display prose-p:text-zinc-700 prose-p:leading-relaxed prose-pre:bg-zinc-100 prose-pre:text-zinc-800 prose-pre:border prose-pre:border-zinc-200 prose-a:text-blue-600 hover:prose-a:text-blue-700">
-        <ReactMarkdown 
-          remarkPlugins={[remarkGfm, remarkMath]} 
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm, remarkMath, remarkHeadingIds]}
           rehypePlugins={[rehypeKatex]}
         >
           {entryData.content || ""}
